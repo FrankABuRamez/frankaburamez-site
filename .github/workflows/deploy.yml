@@ -17,21 +17,25 @@ jobs:
           node-version: '24'
 
       - name: Create archive
-        run: |
-          cd $GITHUB_WORKSPACE
-          tar -czf /tmp/site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' --exclude='deploy.mjs' --exclude='node_modules' .
+        run: tar -czf /tmp/site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' --exclude='package*.json' --exclude='node_modules' .
 
-      - name: Install dependencies
-        run: npm install -g tus-js-client axios
+      - name: Install deploy dependencies
+        run: |
+          cd /tmp
+          npm init -y
+          npm install axios tus-js-client
 
       - name: Deploy to Hostinger
         env:
           HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
           HOSTINGER_USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
+          NODE_PATH: /tmp/node_modules
         run: |
-          node --input-type=module <<'SCRIPT'
-          import axios from 'axios';
-          import * as tus from 'tus-js-client';
+          cat > /tmp/deploy.mjs << 'SCRIPT'
+          import { createRequire } from 'module';
+          const require = createRequire('/tmp/node_modules/');
+          const axios = require('axios');
+          const tus = require('tus-js-client');
           import fs from 'fs';
           import path from 'path';
 
@@ -42,9 +46,8 @@ jobs:
           const ARCHIVE = '/tmp/site.tar.gz';
 
           async function deploy() {
-            // Step 1: Get upload credentials
-            console.log('Getting upload credentials...');
-            const credsResp = await axios.post(`${API}/api/hosting/v1/files/upload-urls`, {
+            console.log('Step 1: Getting upload credentials...');
+            const credsResp = await axios.default.post(`${API}/api/hosting/v1/files/upload-urls`, {
               username: USERNAME,
               domain: DOMAIN
             }, {
@@ -53,17 +56,21 @@ jobs:
             const { url: uploadUrl, auth_key: authToken, rest_auth_key: authRestToken } = credsResp.data;
             console.log('Got upload credentials');
 
-            // Step 2: Upload via TUS
             const stats = fs.statSync(ARCHIVE);
             const basename = path.basename(ARCHIVE);
             const cleanUrl = uploadUrl.replace(/\/$/, '');
             const fullUrl = `${cleanUrl}/${basename}?override=true`;
-            const headers = { 'X-Auth': authToken, 'X-Auth-Rest': authRestToken, 'upload-length': stats.size.toString(), 'upload-offset': '0' };
+            const headers = {
+              'X-Auth': authToken,
+              'X-Auth-Rest': authRestToken,
+              'upload-length': stats.size.toString(),
+              'upload-offset': '0'
+            };
 
-            console.log('Pre-upload POST...');
-            await axios.post(fullUrl, '', { headers, validateStatus: s => s === 201 });
+            console.log('Step 2: Pre-upload POST...');
+            await axios.default.post(fullUrl, '', { headers, validateStatus: s => s === 201 });
 
-            console.log('Uploading archive via TUS...');
+            console.log('Step 3: Uploading archive via TUS...');
             await new Promise((resolve, reject) => {
               const upload = new tus.Upload(fs.createReadStream(ARCHIVE), {
                 uploadUrl: fullUrl,
@@ -72,21 +79,21 @@ jobs:
                 headers,
                 uploadSize: stats.size,
                 metadata: { filename: basename },
-                onError: (err) => reject(err),
+                onError: (err) => { console.error('TUS error:', err); reject(err); },
                 onSuccess: () => { console.log('Upload complete'); resolve(); }
               });
               upload.start();
             });
 
-            // Step 3: Trigger deploy
-            console.log('Triggering deployment...');
-            const deployResp = await axios.post(
+            console.log('Step 4: Triggering deployment...');
+            const deployResp = await axios.default.post(
               `${API}/api/hosting/v1/accounts/${USERNAME}/websites/${DOMAIN}/deploy`,
               { archive_path: basename },
               { headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' } }
             );
-            console.log('Deploy triggered:', JSON.stringify(deployResp.data));
+            console.log('Deploy triggered successfully:', JSON.stringify(deployResp.data));
           }
 
           deploy().catch(err => { console.error('Deploy failed:', err.message); process.exit(1); });
           SCRIPT
+          node /tmp/deploy.mjs
