@@ -11,7 +11,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Create archive
-        run: tar -czf site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' .
+        run: tar -czf /tmp/site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' .
 
       - name: Get upload credentials
         id: creds
@@ -26,12 +26,12 @@ jobs:
         run: |
           curl -s -X POST "${{ steps.creds.outputs.upload_url }}" \
             -H "Authorization: Bearer ${{ steps.creds.outputs.rest_auth_key }}" \
-            -F "file=@site.tar.gz"
+            -F "file=@/tmp/site.tar.gz"
 
       - name: Trigger deploy
         run: |
           curl -s -X POST \
             -H "Authorization: Bearer ${{ secrets.HOSTINGER_API_TOKEN }}" \
             -H "Content-Type: application/json" \
-            -d '{"archive_path": "site.tar.gz"}' \
+            -d '{"archive_path": "/tmp/site.tar.gz"}' \
             "https://developers.hostinger.com/api/hosting/v1/accounts/${{ secrets.HOSTINGER_USERNAME }}/websites/frankaburamez.tech/deploy"
