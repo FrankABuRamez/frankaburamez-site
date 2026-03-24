@@ -3,6 +3,7 @@ name: Deploy to Hostinger
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -10,28 +11,82 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
       - name: Create archive
-        run: tar -czf /tmp/site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' .
-
-      - name: Get upload credentials
-        id: creds
         run: |
-          RESP=$(curl -s -H "Authorization: Bearer ${{ secrets.HOSTINGER_API_TOKEN }}" \
-            "https://developers.hostinger.com/api/hosting/v1/accounts/${{ secrets.HOSTINGER_USERNAME }}/websites/frankaburamez.tech/upload-credentials")
-          echo "upload_url=$(echo $RESP | jq -r '.url')" >> $GITHUB_OUTPUT
-          echo "auth_key=$(echo $RESP | jq -r '.auth_key')" >> $GITHUB_OUTPUT
-          echo "rest_auth_key=$(echo $RESP | jq -r '.rest_auth_key')" >> $GITHUB_OUTPUT
+          cd $GITHUB_WORKSPACE
+          tar -czf /tmp/site.tar.gz --exclude='.git' --exclude='.github' --exclude='README.md' --exclude='deploy.mjs' --exclude='node_modules' .
 
-      - name: Upload archive
-        run: |
-          curl -s -X POST "${{ steps.creds.outputs.upload_url }}" \
-            -H "Authorization: Bearer ${{ steps.creds.outputs.rest_auth_key }}" \
-            -F "file=@/tmp/site.tar.gz"
+      - name: Install dependencies
+        run: npm install -g tus-js-client axios
 
-      - name: Trigger deploy
+      - name: Deploy to Hostinger
+        env:
+          HOSTINGER_API_TOKEN: ${{ secrets.HOSTINGER_API_TOKEN }}
+          HOSTINGER_USERNAME: ${{ secrets.HOSTINGER_USERNAME }}
         run: |
-          curl -s -X POST \
-            -H "Authorization: Bearer ${{ secrets.HOSTINGER_API_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d '{"archive_path": "/tmp/site.tar.gz"}' \
-            "https://developers.hostinger.com/api/hosting/v1/accounts/${{ secrets.HOSTINGER_USERNAME }}/websites/frankaburamez.tech/deploy"
+          node --input-type=module <<'SCRIPT'
+          import axios from 'axios';
+          import * as tus from 'tus-js-client';
+          import fs from 'fs';
+          import path from 'path';
+
+          const API = 'https://developers.hostinger.com';
+          const TOKEN = process.env.HOSTINGER_API_TOKEN;
+          const USERNAME = process.env.HOSTINGER_USERNAME;
+          const DOMAIN = 'frankaburamez.tech';
+          const ARCHIVE = '/tmp/site.tar.gz';
+
+          async function deploy() {
+            // Step 1: Get upload credentials
+            console.log('Getting upload credentials...');
+            const credsResp = await axios.post(`${API}/api/hosting/v1/files/upload-urls`, {
+              username: USERNAME,
+              domain: DOMAIN
+            }, {
+              headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' }
+            });
+            const { url: uploadUrl, auth_key: authToken, rest_auth_key: authRestToken } = credsResp.data;
+            console.log('Got upload credentials');
+
+            // Step 2: Upload via TUS
+            const stats = fs.statSync(ARCHIVE);
+            const basename = path.basename(ARCHIVE);
+            const cleanUrl = uploadUrl.replace(/\/$/, '');
+            const fullUrl = `${cleanUrl}/${basename}?override=true`;
+            const headers = { 'X-Auth': authToken, 'X-Auth-Rest': authRestToken, 'upload-length': stats.size.toString(), 'upload-offset': '0' };
+
+            console.log('Pre-upload POST...');
+            await axios.post(fullUrl, '', { headers, validateStatus: s => s === 201 });
+
+            console.log('Uploading archive via TUS...');
+            await new Promise((resolve, reject) => {
+              const upload = new tus.Upload(fs.createReadStream(ARCHIVE), {
+                uploadUrl: fullUrl,
+                retryDelays: [1000, 2000, 4000],
+                chunkSize: 10485760,
+                headers,
+                uploadSize: stats.size,
+                metadata: { filename: basename },
+                onError: (err) => reject(err),
+                onSuccess: () => { console.log('Upload complete'); resolve(); }
+              });
+              upload.start();
+            });
+
+            // Step 3: Trigger deploy
+            console.log('Triggering deployment...');
+            const deployResp = await axios.post(
+              `${API}/api/hosting/v1/accounts/${USERNAME}/websites/${DOMAIN}/deploy`,
+              { archive_path: basename },
+              { headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' } }
+            );
+            console.log('Deploy triggered:', JSON.stringify(deployResp.data));
+          }
+
+          deploy().catch(err => { console.error('Deploy failed:', err.message); process.exit(1); });
+          SCRIPT
