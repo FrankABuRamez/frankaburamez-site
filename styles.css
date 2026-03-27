@@ -141,6 +141,7 @@ h3 { font-size: 1.15rem; }
   letter-spacing: .02em;
 }
 .tag.amazon { background: rgba(245,158,11,.14); color: #fbbf24; }
+.tag.clickbank { background: rgba(59,130,246,.14); color: #93c5fd; }
 .tag.digistore { background: rgba(16,185,129,.14); color: #34d399; }
 .tag.partner { background: rgba(139,92,246,.14); color: #c4b5fd; }
 .signup {
