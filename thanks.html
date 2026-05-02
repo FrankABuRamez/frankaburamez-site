@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thanks — Frank Trading Ops</title>
+  <meta name="description" content="Thanks for joining Frank Trading Ops. Here's what's next." />
+  <meta name="robots" content="noindex,follow" />
+  <link rel="canonical" href="https://frankaburamez.tech/thanks.html" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSS4LHL6NX');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="./index.html">Frank Trading Ops</a>
+      <nav>
+        <a href="./tools.html">Tools</a>
+        <a href="./vip.html">VIP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero compact">
+      <div class="wrap narrow">
+        <p class="eyebrow" id="status-eyebrow">Confirming...</p>
+        <h1 id="status-title">Thanks for your purchase.</h1>
+        <p class="lead" id="status-message">We're processing your order. Below are your next steps.</p>
+
+        <div class="card" style="padding:24px; margin-top:18px;">
+          <h3>Next steps</h3>
+          <ul>
+            <li id="step-vip"><strong>VIP members:</strong> open <a href="https://whop.com/joined/frank-trading-ops/" target="_blank" rel="noopener noreferrer">your Whop chat</a> to read the latest brief and meet the room.</li>
+            <li id="step-pack"><strong>Pack buyers:</strong> the workflow pack (PDF + Notion link) is being delivered to the email you used at checkout. Allow a few minutes — if it doesn't arrive, email <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a>.</li>
+            <li>Save this page or bookmark <a href="./vip.html">/vip.html</a> for the next brief drop.</li>
+          </ul>
+        </div>
+
+        <div class="actions" style="margin-top:24px;">
+          <a class="btn primary" href="https://whop.com/joined/frank-trading-ops/">Open Whop chat</a>
+          <a class="btn secondary" href="./index.html">Back to site</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <strong>Frank Trading Ops</strong>
+        <p class="small">Contact: <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a></p>
+      </div>
+      <div>
+        <a href="./vip.html">VIP</a><br />
+        <a href="./tools.html">Tools</a><br />
+        <a href="./privacy.html">Privacy</a><br />
+        <a href="./terms.html">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var status = params.get('status');
+      var product = params.get('p');
+      var eyebrow = document.getElementById('status-eyebrow');
+      var title = document.getElementById('status-title');
+      var message = document.getElementById('status-message');
+      var stepVip = document.getElementById('step-vip');
+      var stepPack = document.getElementById('step-pack');
+
+      if (status === 'error') {
+        eyebrow.textContent = 'Something went wrong';
+        title.textContent = 'Checkout did not complete.';
+        message.textContent = 'Your card was not charged. Try again, or email us if you saw an unexpected error.';
+      } else {
+        eyebrow.textContent = 'Confirmed';
+        if (product === 'vip') {
+          title.textContent = 'You are in. Welcome to VIP.';
+          message.textContent = 'Your $19/mo membership is active. Daily briefs land in the Whop chat each weekday morning.';
+          if (stepPack) stepPack.style.display = 'none';
+        } else if (product === 'pack') {
+          title.textContent = 'Pack on the way.';
+          message.textContent = 'Your AI Crypto Workflow Pack delivery email is queued. Check your inbox in the next few minutes.';
+          if (stepVip) stepVip.style.display = 'none';
+        } else {
+          title.textContent = 'Thanks for your purchase.';
+          message.textContent = 'We are processing your order. See next steps below.';
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
