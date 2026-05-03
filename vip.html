@@ -116,6 +116,62 @@
       </div>
     </section>
 
+    <section class="section" id="newsletter">
+      <div class="wrap narrow">
+        <div class="signup-card" id="beehiiv-signup">
+          <div class="signup-inner">
+            <p class="eyebrow">Free weekly crypto digest</p>
+            <h2 class="signup-headline">Free weekly crypto digest — 1 email Sunday morning</h2>
+            <p class="signup-sub">No hype. No spam. One pragmatic 5-minute read covering the week's signal in BTC, ETH, and the macro pulse that touches crypto.</p>
+            <form class="signup-form" id="beehiiv-form" action="https://subscribe-forms.beehiiv.com/8eb77187-2761-4f9f-8fa2-795e15247679" method="POST" target="_blank" novalidate>
+              <!-- Honeypot: bots fill this; humans never see it -->
+              <input type="text" name="website" id="bh-website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;height:0;width:0;opacity:0;" aria-hidden="true" />
+              <div class="signup-row">
+                <label for="bh-email" class="visually-hidden">Email address</label>
+                <input type="email" name="email" id="bh-email" required placeholder="you@example.com" autocomplete="email" inputmode="email" />
+                <button type="submit" class="btn primary signup-btn">Subscribe</button>
+              </div>
+              <p class="signup-fineprint">Unsubscribe with one click. Read the <a href="./privacy.html">privacy policy</a>.</p>
+              <p class="signup-status" id="bh-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </div>
+      </div>
+      <style>
+        .signup-card { background: linear-gradient(135deg, rgba(60,80,140,0.08), rgba(40,40,60,0.04)); border: 1px solid rgba(120,140,180,0.18); border-radius: 14px; padding: 28px; margin: 24px 0; }
+        .signup-inner { max-width: 640px; margin: 0 auto; }
+        .signup-headline { font-size: 1.6rem; line-height: 1.25; margin: 6px 0 8px; }
+        .signup-sub { color: var(--muted, #aab); margin: 0 0 18px; }
+        .signup-form { display: block; }
+        .signup-row { display: flex; gap: 8px; flex-wrap: wrap; }
+        .signup-row input[type=email] { flex: 1 1 240px; padding: 12px 14px; border-radius: 8px; border: 1px solid rgba(120,140,180,0.35); background: rgba(0,0,0,0.18); color: inherit; font-size: 1rem; min-width: 0; }
+        .signup-row input[type=email]:focus { outline: none; border-color: #6aa9ff; }
+        .signup-btn { padding: 12px 20px; }
+        .signup-fineprint { font-size: 0.85rem; color: var(--muted, #aab); margin: 10px 0 0; }
+        .signup-status { font-size: 0.9rem; margin: 8px 0 0; min-height: 1.2em; }
+        .signup-status.ok { color: #6f6; }
+        .signup-status.err { color: #f88; }
+        .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+      </style>
+      <script>
+        (function () {
+          var f = document.getElementById('beehiiv-form');
+          if (!f) return;
+          var status = document.getElementById('bh-status');
+          f.addEventListener('submit', function (e) {
+            var hp = document.getElementById('bh-website');
+            if (hp && hp.value && hp.value.length > 0) {
+              e.preventDefault();
+              if (status) { status.textContent = "Thanks — you're on the list."; status.className = 'signup-status ok'; }
+              return;
+            }
+            if (status) { status.textContent = 'Opening confirmation… check your inbox.'; status.className = 'signup-status ok'; }
+            try { if (window.gtag) { window.gtag('event', 'newsletter_signup', { method: 'beehiiv_embed' }); } } catch (_) {}
+          });
+        })();
+      </script>
+    </section>
+
     <section class="section" id="join">
       <div class="wrap narrow">
         <div class="section-heading">
