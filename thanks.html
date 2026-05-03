@@ -39,6 +39,7 @@
           <ul>
             <li id="step-vip" hidden><strong>VIP members:</strong> open <a href="https://whop.com/joined/frank-trading-ops/" target="_blank" rel="noopener noreferrer">your Whop chat</a> to read the latest brief and meet the room.</li>
             <li id="step-pack" hidden><strong>Pack buyers:</strong> your AI Crypto Workflow Pack is ready. <a id="pack-download" href="" download>Download the pack now</a> (markdown bundle, opens in any text editor or browser). A copy is also being emailed to your checkout address as backup. Lifetime updates — bookmark this page.</li>
+            <li id="step-playbook" hidden><strong>Playbook buyers:</strong> your AI Bug Bounty Playbook is ready. <a id="playbook-download" href="" download>Download the playbook now</a> (markdown — opens in any text editor or browser). Per-program report templates, worked walkthrough, triager rubric. Bookmark this page.</li>
             <li id="step-recon" hidden><strong>BountyRecon:</strong> check your inbox for the magic-link to bind your Telegram. The bot will DM you a confirmation, then your first daily diff arrives at 9 AM UTC tomorrow.</li>
             <li id="step-generic">Save this page or bookmark <a href="./vip.html">/vip.html</a> for the next brief drop.</li>
           </ul>
@@ -79,13 +80,16 @@
       var card = document.getElementById('success-card');
       var stepVip = document.getElementById('step-vip');
       var stepPack = document.getElementById('step-pack');
+      var stepPlaybook = document.getElementById('step-playbook');
       var stepRecon = document.getElementById('step-recon');
       var stepGeneric = document.getElementById('step-generic');
       var packDownload = document.getElementById('pack-download');
+      var playbookDownload = document.getElementById('playbook-download');
 
-      // Pack download URL — only assigned in client-side JS after status=success+p=pack confirmed.
-      // Slug is unguessable; not in static HTML or sitemap. Auth-by-obscurity (full session_id verification deferred to next iteration).
+      // Download URLs — only assigned in client-side JS after status=success + matching product confirmed.
+      // Slugs are unguessable; not in static HTML or sitemap. Auth-by-obscurity (full session_id verification deferred to next iteration).
       var PACK_SLUG = 'ai-crypto-workflow-pack-7f3a9c2e1b5d';
+      var PLAYBOOK_SLUG = 'ai-bounty-playbook-e7a354339e56';
 
       if (status === 'error') {
         eyebrow.textContent = 'Something went wrong';
@@ -116,6 +120,11 @@
         message.textContent = 'Your AI Crypto Workflow Pack is unlocked. Click the download link in the next-steps card. Bookmark this page for lifetime updates.';
         if (stepPack) stepPack.hidden = false;
         if (packDownload) packDownload.href = './pack/' + PACK_SLUG + '.md';
+      } else if (product === 'playbook') {
+        title.textContent = 'Playbook ready. Download below.';
+        message.textContent = 'Your AI Bug Bounty Playbook is unlocked. Click the download link in the next-steps card. Bookmark this page.';
+        if (stepPlaybook) stepPlaybook.hidden = false;
+        if (playbookDownload) playbookDownload.href = './pack/' + PLAYBOOK_SLUG + '.md';
       } else if (product === 'recon-solo' || product === 'recon-pro' || product === 'recon-unlimited') {
         title.textContent = 'BountyRecon active. Bind your Telegram next.';
         message.textContent = 'Your subscription is live. Open the magic-link we email you to bind Telegram, then watch for the first daily diff at 9 AM UTC tomorrow.';
