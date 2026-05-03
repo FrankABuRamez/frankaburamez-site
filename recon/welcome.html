@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to BountyRecon — activate your Telegram alerts</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    .activate-card {
+      background: var(--panel);
+      border: 1px solid rgba(110,231,183,.4);
+      border-radius: 16px;
+      padding: 36px 30px;
+      max-width: 560px;
+      margin: 60px auto;
+      box-shadow: 0 24px 56px rgba(0,0,0,.35);
+    }
+    .activate-card h1 { color: #6ee7b7; font-size: 1.8rem; max-width: none; }
+    .deeplink-btn {
+      display: block; text-align: center; padding: 18px 22px;
+      background: linear-gradient(90deg, #10b981, #059669); color: #042f1f;
+      font-weight: 800; font-size: 1.1rem; border-radius: 12px;
+      margin: 24px 0 18px; text-decoration: none;
+    }
+    .deeplink-btn:hover { filter: brightness(1.08); }
+    .token-display {
+      background: #050a13; padding: 10px 14px; border-radius: 8px;
+      font-family: ui-monospace, "JetBrains Mono", monospace;
+      font-size: .9rem; color: #6ee7b7; word-break: break-all;
+      border: 1px solid rgba(110,231,183,.2);
+      margin: 8px 0;
+    }
+    .step { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .step:last-child { border-bottom: 0; }
+    .step strong { color: #6ee7b7; }
+    .err { background: rgba(252,165,165,.08); border: 1px solid rgba(252,165,165,.3); padding: 14px; border-radius: 10px; color: #fecaca; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/">Frank Trading Ops</a>
+      <nav>
+        <a href="/recon/">BountyRecon</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="activate-card">
+      <div id="ok-state" style="display:none;">
+        <p class="eyebrow" style="color:#6ee7b7;">Payment confirmed</p>
+        <h1>You're in. One step to activate.</h1>
+        <p>Tap the button to open Telegram and connect your subscription. The bot will verify your payment automatically.</p>
+
+        <a id="tg-deeplink" class="deeplink-btn" href="#" target="_blank" rel="noopener">Open Telegram to activate →</a>
+
+        <p style="font-size:.85rem;color:var(--sub);">Or paste this token to <a href="https://t.me/FrankTradingOpsBoT" target="_blank" rel="noopener">@FrankTradingOpsBoT</a> manually:</p>
+        <div class="token-display" id="token-display">…</div>
+
+        <h3 style="margin-top:28px;color:#6ee7b7;">Next steps</h3>
+        <div class="step"><strong>1.</strong> Open the link above (or message @FrankTradingOpsBoT and send <code>/start &lt;token&gt;</code>).</div>
+        <div class="step"><strong>2.</strong> Type <code>/addprogram &lt;yourtarget.com&gt;</code> — e.g. <code>/addprogram tesla.com</code></div>
+        <div class="step"><strong>3.</strong> Within 2 hours: baseline runs. Within 24 hours: your first recon diff lands in Telegram.</div>
+        <div class="step"><strong>4.</strong> Manage subscription anytime — <code>/billing</code> in the bot.</div>
+
+        <p style="margin-top:24px;font-size:.82rem;color:var(--sub);">Need help? Email <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a></p>
+      </div>
+
+      <div id="missing-state" style="display:none;">
+        <h1 style="color:#fca5a5;">Hmm — no session ID found.</h1>
+        <p>This page activates your subscription after Stripe checkout. If you just paid, the link should include <code>?session_id=…</code>.</p>
+        <div class="err">
+          <strong>Did you pay?</strong> Email <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a> with your Stripe receipt and we'll activate you manually within 1 hour.
+        </div>
+        <p style="margin-top:18px;"><a href="/recon/" style="color:#6ee7b7;">← Back to BountyRecon</a></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Public salt — used only to derive a transport token.
+    // Real auth happens server-side in the bot via Stripe API check on session_id.
+    const PUBLIC_SALT = "610e30ea558f2298b011549fe9b454ae";
+    const BOT_USERNAME = "FrankTradingOpsBoT";
+
+    async function hmacSha256Hex(secret, msg) {
+      const enc = new TextEncoder();
+      const key = await crypto.subtle.importKey(
+        "raw", enc.encode(secret),
+        { name: "HMAC", hash: "SHA-256" },
+        false, ["sign"]
+      );
+      const sig = await crypto.subtle.sign("HMAC", key, enc.encode(msg));
+      return Array.from(new Uint8Array(sig)).map(b => b.toString(16).padStart(2, "0")).join("");
+    }
+
+    (async () => {
+      const params = new URLSearchParams(window.location.search);
+      const sessionId = params.get("session_id");
+      if (!sessionId || !sessionId.startsWith("cs_")) {
+        document.getElementById("missing-state").style.display = "block";
+        return;
+      }
+      // Token = first 16 hex chars of HMAC(public_salt, session_id) — short, scannable
+      const fullHmac = await hmacSha256Hex(PUBLIC_SALT, sessionId);
+      const token = fullHmac.substring(0, 16);
+      // Combined start payload: token.session_id_short — bot uses session_id_short to look up full session
+      // Telegram /start params have a 64-char limit, so we send token + last 24 chars of session_id (Stripe IDs are unique by suffix)
+      const sessionTail = sessionId.length > 24 ? sessionId.slice(-24) : sessionId;
+      const startPayload = token + "_" + sessionTail;
+      const deeplink = `https://t.me/${BOT_USERNAME}?start=${startPayload}`;
+
+      document.getElementById("tg-deeplink").href = deeplink;
+      document.getElementById("token-display").textContent = startPayload;
+      document.getElementById("ok-state").style.display = "block";
+    })();
+  </script>
+</body>
+</html>

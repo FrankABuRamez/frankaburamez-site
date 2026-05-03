@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BountyRecon — Daily recon-diff Telegram alerts for bug bounty hunters</title>
+  <meta name="description" content="Autonomous daily subdomain, endpoint, and tech-stack diff for your bug bounty targets. Telegram alerts only on NEW finds. Set + forget. From $19/mo." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="BountyRecon — Daily recon-diff for bug hunters" />
+  <meta property="og:description" content="Autonomous daily recon. Telegram alerts on NEW subdomains, endpoints, tech changes. Set + forget. $19/mo." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://frankaburamez.tech/recon/" />
+  <link rel="canonical" href="https://frankaburamez.tech/recon/" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* BountyRecon-specific overrides — distinct from VIP blue → green/violet hacker accent */
+    .recon-hero {
+      padding: 86px 0 64px;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(16,185,129,.28), transparent 38%),
+        radial-gradient(circle at 88% 92%, rgba(139,92,246,.22), transparent 36%),
+        linear-gradient(180deg, #06120c 0%, #07101a 100%);
+    }
+    .recon-eyebrow { color: #6ee7b7; }
+    .recon-h1 { background: linear-gradient(90deg, #10b981 0%, #8b5cf6 100%); -webkit-background-clip: text; background-clip: text; color: transparent; max-width: 16ch; }
+    .terminal {
+      background: #050a13;
+      border: 1px solid rgba(110,231,183,.22);
+      border-radius: 12px;
+      padding: 18px 20px;
+      font-family: ui-monospace, "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+      font-size: .9rem;
+      color: #cbd5e1;
+      box-shadow: 0 24px 56px rgba(0,0,0,.35);
+      overflow-x: auto;
+    }
+    .terminal .prompt { color: #6ee7b7; }
+    .terminal .new { color: #fde68a; }
+    .terminal .crit { color: #fca5a5; }
+    .terminal .muted { color: #64748b; }
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+    @media (max-width: 880px) { .pricing-grid { grid-template-columns: 1fr; } }
+    .price-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 28px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      position: relative;
+    }
+    .price-card.featured { border-color: rgba(110,231,183,.55); box-shadow: 0 18px 48px rgba(16,185,129,.15); }
+    .price-card .badge { position: absolute; top: -10px; right: 18px; background: #10b981; color: #052e1a; font-size: .72rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; letter-spacing: .04em; }
+    .price-tier { font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; color: #6ee7b7; font-weight: 700; }
+    .price-amount { font-size: 2.6rem; font-weight: 800; line-height: 1; }
+    .price-amount span { font-size: 1rem; color: var(--sub); font-weight: 500; }
+    .price-card ul { padding-left: 1.1rem; color: var(--sub); }
+    .price-card ul li { margin: 6px 0; }
+    .price-card .btn-buy {
+      display: block; text-align: center; padding: 14px 18px; border-radius: 10px;
+      background: linear-gradient(90deg, #10b981, #059669); color: #042f1f;
+      font-weight: 700; margin-top: auto;
+    }
+    .price-card .btn-buy:hover { filter: brightness(1.08); }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 24px;
+    }
+    @media (max-width: 880px) { .feature-grid { grid-template-columns: 1fr; } }
+    .feature {
+      background: var(--panel-soft);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px;
+    }
+    .feature h3 { color: #6ee7b7; }
+    .trust-row {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
+    }
+    .trust-badge {
+      background: rgba(16,185,129,.08);
+      border: 1px solid rgba(16,185,129,.25);
+      color: #a7f3d0;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 600;
+    }
+    .faq details {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 18px;
+      margin-bottom: 10px;
+    }
+    .faq summary { cursor: pointer; font-weight: 600; }
+    .recon-section { padding: 64px 0; }
+    .recon-section.alt { background: linear-gradient(180deg, #07101a 0%, #06120c 100%); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="/">Frank Trading Ops</a>
+      <nav>
+        <a href="/recon/"><strong>BountyRecon</strong></a>
+        <a href="/vip.html">VIP Brief</a>
+        <a href="/tools.html">Tools</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="recon-hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow recon-eyebrow">BountyRecon · for bug hunters</p>
+          <h1 class="recon-h1">Daily recon-diff. Delivered to Telegram.</h1>
+          <p class="lead">Manual recon eats hours every day. BountyRecon runs autonomous subdomain + endpoint + tech-stack diff against your target programs every 24h, then pings you on Telegram <em>only when something new shows up</em>. Set it once. Forget it. Hunt the new attack surface first.</p>
+          <div class="actions">
+            <a class="btn primary" href="#pricing">See pricing</a>
+            <a class="btn secondary" href="#how">How it works</a>
+          </div>
+          <div class="trust-row">
+            <span class="trust-badge">Powered by autonomous recon</span>
+            <span class="trust-badge">No human hands</span>
+            <span class="trust-badge">Only NEW finds — no noise</span>
+            <span class="trust-badge">Cancel anytime</span>
+          </div>
+        </div>
+        <div>
+          <div class="terminal">
+            <div><span class="prompt">bountyrecon</span> <span class="muted">·</span> 2026-05-03 06:00 UTC</div>
+            <div class="muted">target: hackerone.com/security</div>
+            <div>&nbsp;</div>
+            <div><span class="new">+ NEW SUBDOMAIN</span> &nbsp;<span class="muted">staging-internal.target.com</span></div>
+            <div><span class="new">+ NEW ENDPOINT</span> &nbsp;&nbsp;<span class="muted">/api/v3/admin/users (200 OK)</span></div>
+            <div><span class="crit">+ TECH CHANGE</span> &nbsp;&nbsp;<span class="muted">Cloudflare → AWS CloudFront</span></div>
+            <div><span class="new">+ NEW JS FILE</span> &nbsp;&nbsp;<span class="muted">app.7f3e.js  (was app.4a1b.js)</span></div>
+            <div>&nbsp;</div>
+            <div class="muted">3 hunters got this alert. You ship the report first.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recon-section" id="problem">
+      <div class="wrap">
+        <p class="eyebrow recon-eyebrow">The problem</p>
+        <h2>Recon is a treadmill.</h2>
+        <p class="lead">Every serious bounty hunter knows: the dupes are killers. Whoever spots the new staging subdomain, the new admin endpoint, the leaked S3 bucket <em>first</em> wins the bounty. The other 100 hunters get "Duplicate. Closed."</p>
+        <p>So you wake up, you cron your subfinder + httpx + nuclei pipeline, you babysit the diff, you grep through thousands of lines for what changed since yesterday. That's an hour gone before you've even started hunting.</p>
+        <p><strong>BountyRecon does that hour for you.</strong> Every day. Across all your targets. Telegram ping when — and only when — something new appears.</p>
+      </div>
+    </section>
+
+    <section class="recon-section alt" id="how">
+      <div class="wrap">
+        <p class="eyebrow recon-eyebrow">How it works</p>
+        <h2>Three things, fully automatic.</h2>
+        <div class="feature-grid">
+          <div class="feature">
+            <h3>1. Add your program</h3>
+            <p>After payment, you get a Telegram link. <code>/addprogram tesla.com</code> registers a target. Solo = 1 program, Pro = 5, Unlimited = no cap.</p>
+          </div>
+          <div class="feature">
+            <h3>2. We diff every 24h</h3>
+            <p>Subdomain enumeration (passive + active), endpoint discovery, tech fingerprint, JS file hashes. Stored. Compared against yesterday.</p>
+          </div>
+          <div class="feature">
+            <h3>3. Telegram ping on NEW</h3>
+            <p>Only deltas. Subdomain that didn't exist yesterday. Endpoint that changed status. Tech stack that flipped. Zero noise.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recon-section" id="pricing">
+      <div class="wrap">
+        <p class="eyebrow recon-eyebrow">Pricing</p>
+        <h2>One bounty pays for the year.</h2>
+        <p class="lead">Average bounty payout = $500+. BountyRecon Pro for a year = $588. Math is loud.</p>
+        <div class="pricing-grid">
+          <div class="price-card">
+            <div class="price-tier">Solo</div>
+            <div class="price-amount">$19<span>/mo</span></div>
+            <ul>
+              <li>1 program tracked</li>
+              <li>Daily recon diff</li>
+              <li>Telegram alerts on NEW finds</li>
+              <li>Subdomain + endpoint + tech changes</li>
+              <li>Cancel anytime</li>
+            </ul>
+            <a class="btn-buy" href="https://buy.stripe.com/7sYeVegdx3on7mtblheME02" data-tier="solo">Subscribe — $19/mo</a>
+          </div>
+          <div class="price-card featured">
+            <span class="badge">MOST POPULAR</span>
+            <div class="price-tier">Pro</div>
+            <div class="price-amount">$49<span>/mo</span></div>
+            <ul>
+              <li><strong>5 programs tracked</strong></li>
+              <li>Daily recon diff per program</li>
+              <li>Telegram alerts on NEW finds</li>
+              <li>Subdomain + endpoint + tech + JS-hash diff</li>
+              <li>Priority queue (alerts ship first)</li>
+              <li>Cancel anytime</li>
+            </ul>
+            <a class="btn-buy" href="https://buy.stripe.com/8x2aEYaTdcYXbCJ60XeME03" data-tier="pro">Subscribe — $49/mo</a>
+          </div>
+          <div class="price-card">
+            <div class="price-tier">Unlimited</div>
+            <div class="price-amount">$99<span>/mo</span></div>
+            <ul>
+              <li><strong>Unlimited programs</strong></li>
+              <li>Daily recon diff per program</li>
+              <li>Telegram alerts on NEW finds</li>
+              <li>Full diff stack (subdomain + endpoint + tech + JS + DNS)</li>
+              <li>Priority queue</li>
+              <li>Direct line for custom recon requests</li>
+              <li>Cancel anytime</li>
+            </ul>
+            <a class="btn-buy" href="https://buy.stripe.com/3cI6oI5yT4sr5el9d9eME04" data-tier="unlimited">Subscribe — $99/mo</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="recon-section alt" id="faq">
+      <div class="wrap narrow faq">
+        <p class="eyebrow recon-eyebrow">FAQ</p>
+        <h2>Questions hunters ask.</h2>
+        <details><summary>Is this legal? Am I authorized to scan these targets?</summary><p>BountyRecon performs only reconnaissance permitted under each program's public scope (passive DNS, public subdomain enumeration, HTTP fingerprinting on in-scope assets). You are responsible for adding only programs whose scope you are authorized to test under bug bounty rules. We mirror what you'd run yourself with subfinder/httpx — just every day, automatically, for you.</p></details>
+        <details><summary>How fast do I get the first alert?</summary><p>First baseline runs within 2 hours of activation. First diff alert lands within 24 hours of baseline. Subsequent diffs daily.</p></details>
+        <details><summary>What channels — only Telegram?</summary><p>v1 = Telegram only (instant, frictionless, hunters live there). Discord + email coming soon.</p></details>
+        <details><summary>Can I cancel?</summary><p>Yes — Stripe customer portal link in any alert message. One click cancel, no email needed.</p></details>
+        <details><summary>What's the diff against false positives?</summary><p>We track baselines for 7 days before flagging "new" — wildcard-DNS noise, ephemeral CDN edges, and CI staging subdomains get filtered out. You see real new attack surface.</p></details>
+        <details><summary>Do I have to install anything?</summary><p>Nothing. Pay → click Telegram link → <code>/addprogram example.com</code>. Done.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-grid" style="display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;padding:32px 0;border-top:1px solid var(--line);color:var(--sub);">
+        <div>
+          <div class="brand" style="color:var(--text);">BountyRecon</div>
+          <div>Autonomous recon-diff for bug hunters.</div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text);margin-bottom:6px;">Also from Frank</div>
+          <div><a href="/vip.html">VIP — Daily AI Crypto Brief</a></div>
+          <div><a href="/">Home</a></div>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--text);margin-bottom:6px;">Contact</div>
+          <div><a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a></div>
+          <div><a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></div>
+        </div>
+      </div>
+      <div style="padding:18px 0;font-size:.82rem;color:var(--sub);">© 2026 Frank Trading Ops · BountyRecon</div>
+    </div>
+  </footer>
+</body>
+</html>
