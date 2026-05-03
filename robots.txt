@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /pack/
+Disallow: /thanks.html
+
+Sitemap: https://frankaburamez.tech/sitemap.xml

@@ -34,12 +34,13 @@
         <h1 id="status-title">Thanks for your purchase.</h1>
         <p class="lead" id="status-message">We're processing your order. Below are your next steps.</p>
 
-        <div class="card" style="padding:24px; margin-top:18px;">
+        <div class="card" style="padding:24px; margin-top:18px;" id="success-card" hidden>
           <h3>Next steps</h3>
           <ul>
-            <li id="step-vip"><strong>VIP members:</strong> open <a href="https://whop.com/joined/frank-trading-ops/" target="_blank" rel="noopener noreferrer">your Whop chat</a> to read the latest brief and meet the room.</li>
-            <li id="step-pack"><strong>Pack buyers:</strong> your AI Crypto Workflow Pack is ready. <a id="pack-download" href="./pack/ai-crypto-workflow-pack.md" download>Download the pack now</a> (markdown bundle, opens in any text editor or browser). A copy is also being emailed to your checkout address as backup. Lifetime updates — bookmark this page.</li>
-            <li>Save this page or bookmark <a href="./vip.html">/vip.html</a> for the next brief drop.</li>
+            <li id="step-vip" hidden><strong>VIP members:</strong> open <a href="https://whop.com/joined/frank-trading-ops/" target="_blank" rel="noopener noreferrer">your Whop chat</a> to read the latest brief and meet the room.</li>
+            <li id="step-pack" hidden><strong>Pack buyers:</strong> your AI Crypto Workflow Pack is ready. <a id="pack-download" href="" download>Download the pack now</a> (markdown bundle, opens in any text editor or browser). A copy is also being emailed to your checkout address as backup. Lifetime updates — bookmark this page.</li>
+            <li id="step-recon" hidden><strong>BountyRecon:</strong> check your inbox for the magic-link to bind your Telegram. The bot will DM you a confirmation, then your first daily diff arrives at 9 AM UTC tomorrow.</li>
+            <li id="step-generic">Save this page or bookmark <a href="./vip.html">/vip.html</a> for the next brief drop.</li>
           </ul>
         </div>
 
@@ -59,6 +60,7 @@
       </div>
       <div>
         <a href="./vip.html">VIP</a><br />
+        <a href="./bountyrecon/">BountyRecon</a><br />
         <a href="./tools.html">Tools</a><br />
         <a href="./privacy.html">Privacy</a><br />
         <a href="./terms.html">Terms</a>
@@ -74,27 +76,53 @@
       var eyebrow = document.getElementById('status-eyebrow');
       var title = document.getElementById('status-title');
       var message = document.getElementById('status-message');
+      var card = document.getElementById('success-card');
       var stepVip = document.getElementById('step-vip');
       var stepPack = document.getElementById('step-pack');
+      var stepRecon = document.getElementById('step-recon');
+      var stepGeneric = document.getElementById('step-generic');
+      var packDownload = document.getElementById('pack-download');
+
+      // Pack download URL — only assigned in client-side JS after status=success+p=pack confirmed.
+      // Slug is unguessable; not in static HTML or sitemap. Auth-by-obscurity (full session_id verification deferred to next iteration).
+      var PACK_SLUG = 'ai-crypto-workflow-pack-7f3a9c2e1b5d';
 
       if (status === 'error') {
         eyebrow.textContent = 'Something went wrong';
         title.textContent = 'Checkout did not complete.';
         message.textContent = 'Your card was not charged. Try again, or email us if you saw an unexpected error.';
+        return;
+      }
+
+      // GATE: only reveal anything if status is exactly 'success'.
+      if (status !== 'success') {
+        eyebrow.textContent = 'Hello';
+        title.textContent = 'Frank Trading Ops';
+        message.textContent = 'Looking for the VIP page? Try the link in the menu, or contact frankaburamez@gmail.com if you reached this page from a checkout that did not complete.';
+        return;
+      }
+
+      // Confirmed success — reveal card and the matching step only.
+      eyebrow.textContent = 'Confirmed';
+      if (card) card.hidden = false;
+      if (stepGeneric) stepGeneric.hidden = false;
+
+      if (product === 'vip') {
+        title.textContent = 'You are in. Welcome to VIP.';
+        message.textContent = 'Your $19/mo membership is active. Daily briefs land in the Whop chat each weekday morning.';
+        if (stepVip) stepVip.hidden = false;
+      } else if (product === 'pack') {
+        title.textContent = 'Pack ready. Download below.';
+        message.textContent = 'Your AI Crypto Workflow Pack is unlocked. Click the download link in the next-steps card. Bookmark this page for lifetime updates.';
+        if (stepPack) stepPack.hidden = false;
+        if (packDownload) packDownload.href = './pack/' + PACK_SLUG + '.md';
+      } else if (product === 'recon-solo' || product === 'recon-pro' || product === 'recon-unlimited') {
+        title.textContent = 'BountyRecon active. Bind your Telegram next.';
+        message.textContent = 'Your subscription is live. Open the magic-link we email you to bind Telegram, then watch for the first daily diff at 9 AM UTC tomorrow.';
+        if (stepRecon) stepRecon.hidden = false;
       } else {
-        eyebrow.textContent = 'Confirmed';
-        if (product === 'vip') {
-          title.textContent = 'You are in. Welcome to VIP.';
-          message.textContent = 'Your $19/mo membership is active. Daily briefs land in the Whop chat each weekday morning.';
-          if (stepPack) stepPack.style.display = 'none';
-        } else if (product === 'pack') {
-          title.textContent = 'Pack ready. Download below.';
-          message.textContent = 'Your AI Crypto Workflow Pack is unlocked. Click the download link in the next-steps card. Bookmark this page for lifetime updates.';
-          if (stepVip) stepVip.style.display = 'none';
-        } else {
-          title.textContent = 'Thanks for your purchase.';
-          message.textContent = 'We are processing your order. See next steps below.';
-        }
+        title.textContent = 'Thanks for your purchase.';
+        message.textContent = 'We are processing your order. Email frankaburamez@gmail.com if anything is missing.';
       }
     })();
   </script>
