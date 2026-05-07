@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YubiKey: SMS 2FA is broken. Hardware 2FA isn't.</title>
+  <meta name="description" content="SIM-swap attacks have drained over $200M from crypto holders since 2022. SMS 2FA is the weakest link. A YubiKey is a physical key — to log in, the attacker needs it in their hand. They don't have it." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Your SMS code can be stolen. A YubiKey can't." />
+  <meta property="og:description" content="Hardware-bound 2FA. Phish-proof. SIM-swap-proof. The 2FA your exchange already supports — you just haven't bought it." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://frankaburamez.tech/yubikey" />
+  <link rel="canonical" href="https://frankaburamez.tech/yubikey" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSS4LHL6NX');
+  </script>
+  <style>
+    .page-hero { padding: 80px 0 56px; }
+    .page-hero h1 { font-size: clamp(2rem, 4.2vw, 3.4rem); letter-spacing: -0.02em; line-height: 1.08; margin: 16px 0; }
+    .page-hero .lead { font-size: 1.18rem; color: #b5b5b5; max-width: 660px; margin: 0 auto 32px; }
+    .page-hero .center { text-align: center; }
+    .big-cta { display: inline-block; padding: 18px 36px; font-size: 1.1rem; font-weight: 700; background: linear-gradient(135deg, #84cc16, #bef264); color: #0a0a0a; border-radius: 8px; text-decoration: none; transition: transform 0.15s; }
+    .big-cta:hover { transform: translateY(-2px); }
+    .page-hero .meta { color: #6f6f6f; font-size: 0.9rem; margin-top: 14px; }
+    .three-shot { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin: 40px 0; }
+    .shot { background: #141414; border: 1px solid #262626; border-radius: 8px; padding: 24px; }
+    .shot .num { color: #84cc16; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.08em; }
+    .shot h3 { margin: 8px 0 8px; font-size: 1.15rem; color: #fff; }
+    .shot p { color: #b5b5b5; font-size: 0.95rem; line-height: 1.55; }
+    .trust-bar { display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin: 32px 0; color: #9a9a9a; font-size: 0.95rem; }
+    .trust-bar span::before { content: "✓ "; color: #6fdc6f; font-weight: 700; }
+    .faq { max-width: 720px; margin: 0 auto; }
+    .faq details { background: #141414; border: 1px solid #262626; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; }
+    .faq summary { font-weight: 600; color: #fff; cursor: pointer; font-size: 1.02rem; }
+    .faq details[open] summary { margin-bottom: 12px; }
+    .faq p { color: #b5b5b5; line-height: 1.6; margin: 0; }
+    .disclosure { color: #6f6f6f; font-size: 0.82rem; text-align: center; max-width: 720px; margin: 40px auto 0; line-height: 1.6; }
+    .disclosure a { color: #9a9a9a; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="./index.html">Frank Trading Ops</a>
+      <nav>
+        <a href="./tools.html">Tools</a>
+        <a href="./vip.html"><strong>VIP</strong></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="wrap center">
+        <p class="eyebrow">Hardware 2FA · SIM-swap-proof</p>
+        <h1>Your SMS code can be stolen.<br>A YubiKey can't.</h1>
+        <p class="lead">SMS 2FA is the weakest link in your security stack. SIM-swap attacks have drained over $200M from crypto holders since 2022. A YubiKey is a physical key the size of a flash drive — to log into your accounts, the attacker has to have it in their hand. They don't.</p>
+        <a id="cta-primary" class="big-cta" href="https://www.amazon.com/s?k=yubikey+5+nfc&tag=frankaburamez-20" rel="nofollow sponsored" data-link-label="yubikey_hero_cta">Get a YubiKey →</a>
+        <p class="meta">From $50 (USB-A) to $75 (USB-C + NFC). One-time buy. Battery-free. Affiliate link — disclosure below.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="three-shot">
+          <div class="shot">
+            <p class="num">01 — THE PROBLEM</p>
+            <h3>SMS 2FA is broken at the protocol level.</h3>
+            <p>SIM-swap attacks: an attacker convinces your carrier to port your number to their SIM, then receives every SMS code. Coinbase has been the source of multiple eight-figure SIM-swap losses since 2022. SMS was never a security layer — it was a convenience layer pretending to be one.</p>
+          </div>
+          <div class="shot">
+            <p class="num">02 — THE FIX</p>
+            <h3>Hardware-bound, phish-proof.</h3>
+            <p>YubiKey speaks FIDO2/WebAuthn — the modern 2FA standard. To approve a login, you tap a physical button on the key. The cryptographic challenge is bound to the actual website, so phishing pages can't replay the response. SMS can be intercepted; this can't.</p>
+          </div>
+          <div class="shot">
+            <p class="num">03 — THE OUTCOME</p>
+            <h3>One key. Every account that matters.</h3>
+            <p>Coinbase, Binance, Kraken, Gemini, Coinbase Pro, Github, Google, your password manager — all support YubiKey directly. Buy two (one in your pocket, one in the safe), enroll them on every account, throw away SMS 2FA. The next SIM-swap attempt fails before it starts.</p>
+          </div>
+        </div>
+
+        <div class="trust-bar">
+          <span>FIDO2 / WebAuthn / U2F standards</span>
+          <span>Coinbase, Binance, Kraken, Gemini supported</span>
+          <span>USB-A, USB-C, NFC variants</span>
+          <span>10-year lifespan, no battery</span>
+        </div>
+
+        <div style="text-align:center; margin: 32px 0 56px;">
+          <a id="cta-mid" class="big-cta" href="https://www.amazon.com/s?k=yubikey+5+nfc&tag=frankaburamez-20" rel="nofollow sponsored" data-link-label="yubikey_mid_cta">Get a YubiKey →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section-heading center">
+          <p class="eyebrow">Common questions</p>
+          <h2>Things people ask before they buy.</h2>
+        </div>
+        <div class="faq">
+          <details>
+            <summary>Which model should I get?</summary>
+            <p>The <strong>YubiKey 5C NFC</strong> ($55) is the right answer for most people — USB-C plus NFC for phone tap. If you have older USB-A laptops, the <strong>YubiKey 5 NFC</strong> works the same way. The Security Key Series ($25) is cheaper but lacks features like OTP and OpenPGP. Don't overthink it — the 5C NFC covers every use case for a crypto holder.</p>
+          </details>
+          <details>
+            <summary>How many do I need?</summary>
+            <p>Two. Always two. One stays on your keychain or in your pocket, the other lives in your fire safe as the recovery key. Enroll both on every account at the same time. Lose the primary? The backup unlocks everything. Lose both? You still have the per-account recovery codes you wrote down. Single-key setups are how people get locked out forever.</p>
+          </details>
+          <details>
+            <summary>What if I lose them both?</summary>
+            <p>That's why every site that supports 2FA also gives you backup recovery codes when you enroll. Print those, fold them, put them in the safe with the YubiKey. The hierarchy: YubiKey first, backup YubiKey second, recovery codes third. Three-layer redundancy for the cost of $110 plus a piece of paper.</p>
+          </details>
+          <details>
+            <summary>Does my exchange support it?</summary>
+            <p>Coinbase, Binance, Kraken, Gemini, Coinbase Pro, Bitstamp, OKX, Bybit — yes. Most major US and EU exchanges. Some smaller / Asian-only exchanges still only support SMS or TOTP — a YubiKey can do TOTP too via the Yubico Authenticator app, so you're covered there as well.</p>
+          </details>
+          <details>
+            <summary>Is this NFC or USB?</summary>
+            <p>The 5 NFC and 5C NFC do both — plug into a laptop via USB or tap to a phone via NFC. Same key, two ways to authenticate. That's why those models are worth the extra $5-10 over the cheaper variants.</p>
+          </details>
+          <details>
+            <summary>Is this affiliate-promoted?</summary>
+            <p>Yes — disclosed below. As an Amazon Associate, Frank Trading Ops earns from qualifying purchases at no extra cost to you. The recommendation is based on the operator's own use of two YubiKeys for every exchange and email account.</p>
+          </details>
+        </div>
+
+        <div style="text-align:center; margin: 48px 0 0;">
+          <a id="cta-final" class="big-cta" href="https://www.amazon.com/s?k=yubikey+5+nfc&tag=frankaburamez-20" rel="nofollow sponsored" data-link-label="yubikey_final_cta">Get a YubiKey →</a>
+          <p class="meta" style="margin-top: 14px;">Buy two. Throw away SMS 2FA. Done.</p>
+        </div>
+
+        <p class="disclosure">
+          Affiliate disclosure: as an Amazon Associate, Frank Trading Ops earns from qualifying purchases. The price you pay is identical whether you click through this link or go directly to Amazon. Educational content only, not financial advice. <a href="./privacy.html">Privacy</a> · <a href="./terms.html">Terms</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; <span id="year"></span> Frank Trading Ops · educational content, not financial advice</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      var src = params.get('src');
+      if (!src) return;
+      var amazonLinks = document.querySelectorAll('a[href*="amazon.com"]');
+      amazonLinks.forEach(function(a) {
+        var u = new URL(a.href);
+        u.searchParams.set('ascsubtag', src);
+        a.href = u.toString();
+      });
+    })();
+    document.querySelectorAll('a[data-link-label]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        if (typeof gtag === 'function') {
+          gtag('event', 'cta_click', { 'cta_label': a.getAttribute('data-link-label'), 'src': new URLSearchParams(window.location.search).get('src') || 'direct' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
