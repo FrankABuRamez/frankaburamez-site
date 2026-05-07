@@ -1,0 +1,240 @@
+# Niche: AI for Crypto
+# Source of truth for the seo-engine page generator.
+# Crypto AI tools have less mature affiliate programs than mainstream SaaS —
+# unverified items marked TODO_VERIFY for human confirmation before launch.
+niche:
+  slug: crypto
+  name: AI for Crypto
+  audience: "Crypto traders, DeFi power users, and on-chain analysts who want AI as an edge multiplier."
+  intent: "Use AI to compress research, monitor chains, and surface trade signals faster than the market."
+
+tools:
+  - name: Arkham Intelligence
+    slug: arkham
+    category: research
+    one_liner: "AI-powered on-chain analytics that ties wallet addresses to real entities — every crypto trader's edge tool."
+    official_url: "https://www.arkhamintelligence.com"
+    affiliate_url: "https://www.arkhamintelligence.com"
+    pricing_tiers:
+      - "Free tier — basic search"
+      - "Premium — paid"
+      - "Bounty marketplace — earn for entity tagging"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Arkham does not publish a standard affiliate program — listing rewards via bounties)"
+    strengths:
+      - "Best-in-class entity attribution — see who actually owns a wallet."
+      - "Alerts can be wired into Telegram or Discord for live whale tracking."
+      - "Integrated AI explanations on transactions and clusters."
+    weaknesses:
+      - "Affiliate program is informal — bounties not predictable monthly income."
+      - "Entity attributions can be wrong or stale in long-tail wallets."
+      - "Best features behind paid tier."
+    best_for: "Traders who decide based on whale flow, exchange inflows, and entity behavior."
+    alternative_slugs: [nansen, chainalysis, dune, glassnode]
+
+  - name: Nansen
+    slug: nansen
+    category: research
+    one_liner: "On-chain analytics with AI smart-money labels — what funds and serious DeFi traders watch every morning."
+    official_url: "https://www.nansen.ai"
+    affiliate_url: "https://www.nansen.ai"
+    pricing_tiers:
+      - "Free — limited dashboards"
+      - "Pilot — from $99/mo"
+      - "Standard — paid"
+      - "VIP — high-tier custom"
+    recurring_commission_pct: "TODO_VERIFY (Nansen has run partner programs but rates are not consistently public)"
+    strengths:
+      - "Smart-money wallet labels are uniquely valuable signal."
+      - "Solana, EVM, and growing L2 coverage in one product."
+      - "AI Query lets non-technical users hit on-chain data with plain English."
+    weaknesses:
+      - "Pricing has crept upward — entry tier is not cheap."
+      - "Less useful for ETH-only users who already use Etherscan and Dune."
+      - "Affiliate program terms not always public."
+    best_for: "Active DeFi traders who want institutional-grade chain intel."
+    alternative_slugs: [arkham, dune, glassnode, lookonchain]
+
+  - name: Dune
+    slug: dune
+    category: research
+    one_liner: "SQL + AI on-chain analytics platform — query any chain, ship dashboards, plug AI into the result."
+    official_url: "https://dune.com"
+    affiliate_url: "https://dune.com"
+    pricing_tiers:
+      - "Free — public queries"
+      - "Plus — from $399/mo"
+      - "Premium — from $999/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Dune does not run a public affiliate program; some indirect partner deals exist)"
+    strengths:
+      - "Open SQL on-chain — extreme power if you can write a query."
+      - "Wand AI assistant translates plain English to SQL."
+      - "Massive community of public dashboards to fork."
+    weaknesses:
+      - "Steep learning curve for non-SQL users despite Wand."
+      - "Pricing aimed at funds and protocols, not retail."
+      - "No formal affiliate program."
+    best_for: "Quants, protocol teams, and analysts who want AI on top of raw on-chain SQL."
+    alternative_slugs: [nansen, arkham, flipside, allium]
+
+  - name: 3Commas
+    slug: 3commas
+    category: trading-bot
+    one_liner: "Trading bot platform with AI-assisted strategy builders for spot, futures, and DCA — runs while you sleep."
+    official_url: "https://3commas.io"
+    affiliate_url: "https://3commas.io"
+    pricing_tiers:
+      - "Free — limited bots"
+      - "Pro — from $37/mo"
+      - "Expert — from $59/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "20-50% recurring (TODO_VERIFY current 3Commas Affiliate Program tier)"
+    strengths:
+      - "Long-running, recognizable brand in retail crypto trading."
+      - "Recurring affiliate program with documented payouts."
+      - "DCA bots and grid bots ship without writing code."
+    weaknesses:
+      - "Past API key incident in 2022 still hangs over the brand."
+      - "AI strategy builder quality varies widely by market regime."
+      - "Subscription cost adds up across exchanges."
+    best_for: "Retail traders who want automated DCA and grid bots without building from scratch."
+    alternative_slugs: [cryptohopper, pionex, bitsgap, gunbot]
+
+  - name: Cryptohopper
+    slug: cryptohopper
+    category: trading-bot
+    one_liner: "AI-driven crypto trading bot with marketplace strategies and signal subscriptions for hands-off setups."
+    official_url: "https://www.cryptohopper.com"
+    affiliate_url: "https://www.cryptohopper.com"
+    pricing_tiers:
+      - "Pioneer — Free"
+      - "Explorer — $19/mo"
+      - "Adventurer — $49/mo"
+      - "Hero — $99/mo"
+    recurring_commission_pct: "25% recurring (TODO_VERIFY current Cryptohopper Affiliate Program)"
+    strengths:
+      - "Strategy marketplace lets non-coders rent proven setups."
+      - "Documented recurring affiliate payouts — solid solo-founder economics."
+      - "Backtesting and paper trading included on lower tiers."
+    weaknesses:
+      - "Signal sellers vary wildly in quality and lifespan."
+      - "Like all bots — past performance does not predict next regime."
+      - "Higher tiers needed for serious volume."
+    best_for: "Crypto traders who want to ship a bot in an afternoon."
+    alternative_slugs: [3commas, pionex, bitsgap, hummingbot]
+
+  - name: Bitsgap
+    slug: bitsgap
+    category: trading-bot
+    one_liner: "Multi-exchange grid trading + AI signal bot popular with retail crypto traders chasing range markets."
+    official_url: "https://bitsgap.com"
+    affiliate_url: "https://bitsgap.com"
+    pricing_tiers:
+      - "Basic — $25/mo (annual)"
+      - "Advanced — $58/mo (annual)"
+      - "Pro — $108/mo (annual)"
+      - "Demo available"
+    recurring_commission_pct: "20-50% recurring (TODO_VERIFY current Bitsgap Affiliate Program tier ladder)"
+    strengths:
+      - "Strong grid bot interface — visual P/L per range."
+      - "Connects to 15+ exchanges from one dashboard."
+      - "Higher commission ladder than most competitors for top affiliates."
+    weaknesses:
+      - "Grid bots underperform in trending markets."
+      - "Annual pricing softens monthly cost but locks users in."
+      - "AI signal accuracy fluctuates by market regime."
+    best_for: "Range traders who want a grid bot they don't have to rebuild every month."
+    alternative_slugs: [3commas, cryptohopper, pionex, gunbot]
+
+  - name: Glassnode
+    slug: glassnode
+    category: research
+    one_liner: "On-chain data and metrics provider with AI-driven dashboards for BTC, ETH, and major chains."
+    official_url: "https://glassnode.com"
+    affiliate_url: "https://glassnode.com"
+    pricing_tiers:
+      - "Free tier — limited"
+      - "Standard — paid"
+      - "Advanced — paid"
+      - "Institutional — custom"
+    recurring_commission_pct: "TODO_VERIFY (Glassnode has run referral programs but rates not always public)"
+    strengths:
+      - "Deepest catalog of standardized on-chain metrics for BTC."
+      - "Daily and weekly research delivered to inbox — pure signal."
+      - "Used by funds — credibility on professional desks."
+    weaknesses:
+      - "Mid and high tiers are expensive for retail."
+      - "Less L2 and Solana coverage than competitors."
+      - "Affiliate terms not as transparent as 3Commas-tier programs."
+    best_for: "BTC-focused traders who decide off macro on-chain regime."
+    alternative_slugs: [cryptoquant, nansen, arkham, lookonchain]
+
+  - name: CryptoQuant
+    slug: cryptoquant
+    category: research
+    one_liner: "On-chain + exchange flow analytics with AI summaries — popular with traders watching exchange reserves."
+    official_url: "https://cryptoquant.com"
+    affiliate_url: "https://cryptoquant.com"
+    pricing_tiers:
+      - "Free — limited charts"
+      - "Advanced — $39/mo"
+      - "Professional — $99/mo"
+      - "Premium — $799/mo"
+    recurring_commission_pct: "TODO_VERIFY (CryptoQuant runs affiliate program — rate tier not always public)"
+    strengths:
+      - "Exchange-flow data is unique signal not easily replicated."
+      - "Quicktake research notes are concise daily reads."
+      - "Cheaper entry point than Glassnode for retail."
+    weaknesses:
+      - "Premium tier is steep — only justified by professional desks."
+      - "Some metrics overlap with Glassnode."
+      - "AI commentary is helpful but not differentiated."
+    best_for: "Retail traders who want exchange-flow data without paying institutional rates."
+    alternative_slugs: [glassnode, nansen, arkham, santiment]
+
+  - name: Santiment
+    slug: santiment
+    category: research
+    one_liner: "On-chain + social sentiment analytics with AI-driven alpha signals across BTC, ETH, and altcoins."
+    official_url: "https://santiment.net"
+    affiliate_url: "https://santiment.net"
+    pricing_tiers:
+      - "Free — limited"
+      - "Pro — $49/mo"
+      - "Pro+ — $209/mo"
+      - "Business — $999/mo"
+    recurring_commission_pct: "TODO_VERIFY (Santiment has historically run referral credit programs)"
+    strengths:
+      - "Combines on-chain, social, and dev activity in one tool."
+      - "Insights service curates signal for time-poor traders."
+      - "Good middle-ground pricing between Glassnode and free options."
+    weaknesses:
+      - "Social sentiment data quality varies by chain and platform."
+      - "Less brand recognition with US institutional traders."
+      - "Affiliate program terms not consistently public."
+    best_for: "Traders who weight social and dev activity alongside on-chain."
+    alternative_slugs: [lunarcrush, glassnode, cryptoquant, intotheblock]
+
+  - name: TradingView
+    slug: tradingview
+    category: charting
+    one_liner: "Industry-standard charting platform with AI alerts and Pine Script — every crypto trader's home tab."
+    official_url: "https://www.tradingview.com"
+    affiliate_url: "https://www.tradingview.com"
+    pricing_tiers:
+      - "Basic — Free"
+      - "Essential — $14.95/mo"
+      - "Plus — $29.95/mo"
+      - "Premium — $59.95/mo"
+    recurring_commission_pct: "30% recurring on first sale (TODO_VERIFY current TradingView affiliate program)"
+    strengths:
+      - "Largest community of public charts and ideas in crypto."
+      - "Real recurring affiliate program with documented terms."
+      - "AI alerts and screener save hours of manual chart watching."
+    weaknesses:
+      - "Crypto-specific data still requires extra exchange feeds."
+      - "Higher tiers needed for multi-monitor traders."
+      - "Pine Script learning curve for custom indicators."
+    best_for: "Any crypto trader who already lives in charts and wants AI on top."
+    alternative_slugs: [coinglass, coinmarketcap, coinigy, gtx]

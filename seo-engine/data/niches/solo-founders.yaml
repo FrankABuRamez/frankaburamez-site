@@ -1,0 +1,240 @@
+# Niche: AI for Solo Founders
+# Source of truth for the seo-engine page generator.
+# Pricing and commission data current as of Jan 2026 — items lacking a confirmed
+# affiliate program are marked TODO_VERIFY so a human can confirm before launch.
+niche:
+  slug: solo-founders
+  name: AI for Solo Founders
+  audience: "Non-technical founders running a one-person company who use AI as their team."
+  intent: "Replace hiring with software. Cover ops, ideation, writing, and decision-making with AI."
+
+tools:
+  - name: ChatGPT
+    slug: chatgpt
+    category: writing
+    one_liner: "General-purpose AI assistant for drafting, planning, and rapid research a solo founder can run all day."
+    official_url: "https://chat.openai.com"
+    affiliate_url: "https://chat.openai.com"
+    pricing_tiers:
+      - "Free — GPT-5 with usage caps"
+      - "Plus — $20/mo"
+      - "Pro — $200/mo (heavy reasoning + agents)"
+      - "Team — $30/seat/mo"
+    recurring_commission_pct: "TODO_VERIFY (no public consumer affiliate program as of Jan 2026)"
+    strengths:
+      - "Best general-purpose AI for ambiguous founder questions."
+      - "Custom GPTs let a solo operator turn repeat workflows into one-click apps."
+      - "Voice mode is genuinely usable for long thinking walks."
+    weaknesses:
+      - "No real consumer affiliate program — monetization is ads/upsell adjacent."
+      - "Pro tier price is steep for early-stage solo founders."
+      - "Memory and context across chats still leaks between projects."
+    best_for: "Solo founders who want one tool that handles 80% of daily thinking work."
+    alternative_slugs: [claude, gemini, perplexity, notion-ai]
+
+  - name: Claude
+    slug: claude
+    category: writing
+    one_liner: "Anthropic's AI — sharper writing, longer documents, and a Projects feature solo founders use as second-brain folders."
+    official_url: "https://claude.ai"
+    affiliate_url: "https://claude.ai"
+    pricing_tiers:
+      - "Free — Claude Sonnet with daily caps"
+      - "Pro — $20/mo"
+      - "Max — $100-$200/mo"
+      - "Team — $25/seat/mo (5+ seats)"
+    recurring_commission_pct: "TODO_VERIFY (Anthropic does not run a consumer affiliate program as of Jan 2026)"
+    strengths:
+      - "Better long-form writing voice than most competitors."
+      - "Projects + Artifacts make it usable as a knowledge base, not just a chat."
+      - "Strong code execution and computer-use tier for ops automation."
+    weaknesses:
+      - "No public affiliate program — pure end-user purchase."
+      - "Daily message caps still bite Pro users on long days."
+      - "Mobile app feature parity lags ChatGPT."
+    best_for: "Founders who write a lot — newsletters, sales copy, internal docs — and want better defaults."
+    alternative_slugs: [chatgpt, gemini, jasper, copy-ai]
+
+  - name: Notion AI
+    slug: notion-ai
+    category: knowledge-base
+    one_liner: "AI built into the workspace solo founders already use to run docs, CRM, and roadmap."
+    official_url: "https://www.notion.so/product/ai"
+    affiliate_url: "https://www.notion.so/product/ai"
+    pricing_tiers:
+      - "Free — limited AI credits"
+      - "Plus — $12/seat/mo"
+      - "Business — $24/seat/mo (full AI)"
+      - "Enterprise — custom"
+    recurring_commission_pct: "50% recurring for 12 months (TODO_VERIFY current Notion Affiliate Program terms)"
+    strengths:
+      - "Works inside the database/page model founders already operate from."
+      - "Connects to Slack, Google Drive, and Linear for cross-app search."
+      - "One of the few SaaS AI products with a real recurring affiliate program."
+    weaknesses:
+      - "Generation quality lags Claude/ChatGPT on long-form writing."
+      - "AI features keep getting re-bundled into higher tiers."
+      - "Not a fit if your knowledge base is not already in Notion."
+    best_for: "Solo founders running their company in Notion who want AI inside the docs."
+    alternative_slugs: [coda, mem, obsidian-ai, anytype]
+
+  - name: Perplexity
+    slug: perplexity
+    category: research
+    one_liner: "AI search engine that returns sourced answers, not links — solo founders use it as their default research tab."
+    official_url: "https://www.perplexity.ai"
+    affiliate_url: "https://www.perplexity.ai"
+    pricing_tiers:
+      - "Free — basic search"
+      - "Pro — $20/mo"
+      - "Enterprise Pro — $40/seat/mo"
+      - "Max — $200/mo (extended Pro Search and labs)"
+    recurring_commission_pct: "TODO_VERIFY (Perplexity has run referral credit programs but no public revenue affiliate)"
+    strengths:
+      - "Cited answers cut research time on competitive intel and market sizing."
+      - "Pro Search runs longer, multi-step web reasoning that beats raw Google."
+      - "Spaces let a founder build a project workspace around recurring questions."
+    weaknesses:
+      - "No published recurring revenue affiliate — monetization is referral credits."
+      - "Hallucinated citations still happen on niche topics."
+      - "Pricing has crept upward with each model upgrade."
+    best_for: "Solo founders who research before every decision and need real sources."
+    alternative_slugs: [chatgpt, you-com, exa, kagi]
+
+  - name: Gamma
+    slug: gamma
+    category: design
+    one_liner: "AI-native presentation and one-pager builder solo founders use to skip Figma + slides + landing pages."
+    official_url: "https://gamma.app"
+    affiliate_url: "https://gamma.app"
+    pricing_tiers:
+      - "Free — 400 AI credits"
+      - "Plus — $10/mo (annual)"
+      - "Pro — $20/mo (annual)"
+      - "Business — $25/seat/mo"
+    recurring_commission_pct: "20% recurring (TODO_VERIFY Gamma partner program)"
+    strengths:
+      - "Generates a real-looking deck, doc, or website from a single prompt in minutes."
+      - "One tool replaces three jobs solo founders usually outsource."
+      - "Embedded analytics on shared decks beats Google Slides."
+    weaknesses:
+      - "Templates can feel same-y at scale — you have to override defaults."
+      - "Custom domain + heavy theming locked behind Pro."
+      - "Limited control vs. Figma for pixel-perfect work."
+    best_for: "Solo founders who need decks, lead magnets, and one-page sites without designers."
+    alternative_slugs: [tome, beautiful-ai, canva, pitch]
+
+  - name: Zapier
+    slug: zapier
+    category: automation
+    one_liner: "AI-augmented workflow automation — the glue solo founders use to connect every other AI tool to their stack."
+    official_url: "https://zapier.com"
+    affiliate_url: "https://zapier.com"
+    pricing_tiers:
+      - "Free — 100 tasks/mo"
+      - "Professional — from $19.99/mo"
+      - "Team — from $69/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "30% for first 12 months (TODO_VERIFY current Zapier Affiliate Program terms)"
+    strengths:
+      - "Largest app catalog — 7,000+ integrations including every AI provider."
+      - "AI-powered Tables and Interfaces collapse three SaaS tools into one workflow."
+      - "Real recurring affiliate program with public payout terms."
+    weaknesses:
+      - "Task pricing punishes high-volume workflows — costs scale fast."
+      - "Newer competitors (n8n, Make) offer flat-rate self-host options."
+      - "AI features are bolted on, not native, on older Zaps."
+    best_for: "Founders who want to wire AI tools together without writing code."
+    alternative_slugs: [make, n8n, pipedream, workato]
+
+  - name: Beehiiv
+    slug: beehiiv
+    category: marketing
+    one_liner: "Newsletter platform with AI writing assist — what solo founders use when ConvertKit feels heavy."
+    official_url: "https://www.beehiiv.com"
+    affiliate_url: "https://www.beehiiv.com"
+    pricing_tiers:
+      - "Launch — Free up to 2,500 subs"
+      - "Scale — from $39/mo"
+      - "Max — from $99/mo (AI features)"
+      - "Enterprise — custom"
+    recurring_commission_pct: "50% for 12 months (TODO_VERIFY current Beehiiv Partner Program terms)"
+    strengths:
+      - "Free tier is genuinely usable — the founder ships before paying."
+      - "AI translation and writing assist included on Max."
+      - "One of the most generous recurring affiliate programs in newsletter SaaS."
+    weaknesses:
+      - "AI features are gated behind the highest paid tier."
+      - "Less mature CRM and segmentation than ConvertKit."
+      - "Email deliverability sometimes lags older players."
+    best_for: "Founders building an audience as the moat for their product."
+    alternative_slugs: [convertkit, substack, ghost, mailerlite]
+
+  - name: Cal.com
+    slug: cal-com
+    category: ops
+    one_liner: "Open-source AI scheduling — a solo founder's calendar router for sales calls, podcasts, and intros."
+    official_url: "https://cal.com"
+    affiliate_url: "https://cal.com"
+    pricing_tiers:
+      - "Free — individuals"
+      - "Teams — $15/user/mo"
+      - "Organization — $37/user/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Cal.com offers open-source self-host; partner program terms not consistently published)"
+    strengths:
+      - "Open-source — self-host possible for cost-sensitive founders."
+      - "AI agent answers and books on the founder's behalf."
+      - "Routing forms convert traffic into qualified meetings."
+    weaknesses:
+      - "Affiliate terms are less clearly documented than Calendly."
+      - "AI scheduling agent quality still uneven on edge cases."
+      - "More config than Calendly — slower to set up."
+    best_for: "Technical-leaning founders who want a calendar they can extend."
+    alternative_slugs: [calendly, savvycal, motion, reclaim-ai]
+
+  - name: Linear
+    slug: linear
+    category: ops
+    one_liner: "AI-augmented issue tracker solo founders use as their single source of work — from idea to ship."
+    official_url: "https://linear.app"
+    affiliate_url: "https://linear.app"
+    pricing_tiers:
+      - "Free — up to 10 users, limited"
+      - "Standard — $8/user/mo"
+      - "Business — $14/user/mo (AI features)"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Linear does not publicly list a partner/affiliate program as of Jan 2026)"
+    strengths:
+      - "Fast, opinionated workflow — solo founders adopt it in an afternoon."
+      - "AI auto-triage and PR linking remove busywork."
+      - "Best-in-class keyboard UX — operates at speed of thought."
+    weaknesses:
+      - "No published affiliate program — pure end-user revenue."
+      - "Less of a fit for non-technical co-builders than Asana."
+      - "AI features locked to Business tier."
+    best_for: "Solo founders shipping software who want issue tracking that feels like a code editor."
+    alternative_slugs: [shortcut, jira, asana, height]
+
+  - name: Loom
+    slug: loom
+    category: communication
+    one_liner: "AI-summarized async video — solo founders use it to skip meetings and hand off context."
+    official_url: "https://www.loom.com"
+    affiliate_url: "https://www.loom.com"
+    pricing_tiers:
+      - "Starter — Free (25 videos)"
+      - "Business — $15/seat/mo"
+      - "Business + AI — $20/seat/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Loom's affiliate program through impact.com — terms vary by partner)"
+    strengths:
+      - "AI summaries, action items, and chapters automatic on recorded videos."
+      - "Owned by Atlassian — long-term continuity is more credible than scrappy alternatives."
+      - "Removes meeting load for solo founders working with contractors."
+    weaknesses:
+      - "Free tier limits got tighter post-acquisition."
+      - "AI features behind the +AI tier."
+      - "Affiliate program terms are partner-specific via impact.com."
+    best_for: "Solo founders who want async video as their default communication mode."
+    alternative_slugs: [tella, screen-studio, vidyard, claap]

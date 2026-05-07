@@ -1,0 +1,244 @@
+# Niche: AI Dev Tools
+# Source of truth for the seo-engine page generator.
+# Dev-tool affiliate programs are tightly regulated — many vendors run only
+# customer-referral credit programs, not classic recurring rev share. Marked
+# TODO_VERIFY where commission terms aren't publicly confirmed for Jan 2026.
+niche:
+  slug: dev-tools
+  name: AI Dev Tools
+  audience: "Software engineers, indie hackers, and small dev teams who pay for AI to write more code per hour."
+  intent: "Compare and pick AI coding tools — IDE assistants, agents, terminal helpers, and review bots."
+
+tools:
+  - name: Cursor
+    slug: cursor
+    category: code-completion
+    one_liner: "AI-first code editor — fork of VS Code with deeply integrated AI agents that read your repo and write code."
+    official_url: "https://cursor.com"
+    affiliate_url: "https://cursor.com"
+    pricing_tiers:
+      - "Hobby — Free (limited)"
+      - "Pro — $20/mo"
+      - "Pro+ — $60/mo"
+      - "Ultra — $200/mo"
+      - "Business — $40/seat/mo"
+    recurring_commission_pct: "TODO_VERIFY (Cursor has paid one-time referral credits historically — no public revenue affiliate as of Jan 2026)"
+    strengths:
+      - "Best-in-class agent mode for large multi-file changes."
+      - "Familiar VS Code keybindings — zero ramp time for most engineers."
+      - "Composer and tab completion are genuinely state of the art."
+    weaknesses:
+      - "No public recurring affiliate program — credits only."
+      - "Costs add up fast for power users on Pro+ or Ultra."
+      - "Closed-source fork raises long-term lock-in concerns."
+    best_for: "Working engineers who want their editor to feel like a junior teammate."
+    alternative_slugs: [github-copilot, windsurf, zed, cline]
+
+  - name: GitHub Copilot
+    slug: github-copilot
+    category: code-completion
+    one_liner: "Microsoft/GitHub's AI coding assistant — works in VS Code, JetBrains, Visual Studio, and Neovim."
+    official_url: "https://github.com/features/copilot"
+    affiliate_url: "https://github.com/features/copilot"
+    pricing_tiers:
+      - "Free — limited completions"
+      - "Pro — $10/mo"
+      - "Pro+ — $39/mo"
+      - "Business — $19/user/mo"
+      - "Enterprise — $39/user/mo"
+    recurring_commission_pct: "TODO_VERIFY (GitHub does not run a public consumer affiliate for Copilot as of Jan 2026)"
+    strengths:
+      - "Deepest editor and IDE coverage on the market."
+      - "Tight integration with GitHub repo, issues, and PRs."
+      - "Backed by Microsoft — long-term continuity is assumed."
+    weaknesses:
+      - "Less aggressive agent capabilities than Cursor or Cline."
+      - "No revenue affiliate program — pure end-user purchase."
+      - "Some users report worse code quality than Claude-direct flows."
+    best_for: "Developers in enterprise environments where IT only approves Microsoft."
+    alternative_slugs: [cursor, codeium, tabnine, jetbrains-ai]
+
+  - name: Windsurf
+    slug: windsurf
+    category: code-completion
+    one_liner: "AI code editor (formerly Codeium IDE) — agentic code generation with multi-file context."
+    official_url: "https://windsurf.com"
+    affiliate_url: "https://windsurf.com"
+    pricing_tiers:
+      - "Free — generous tier"
+      - "Pro — $15/mo"
+      - "Pro Ultimate — $60/mo"
+      - "Teams — $35/seat/mo"
+    recurring_commission_pct: "TODO_VERIFY (Windsurf/Codeium has historically run referral credit, not revenue share)"
+    strengths:
+      - "Most generous free tier of major AI editors."
+      - "Cascade agent mode is competitive with Cursor's Composer."
+      - "Strong enterprise on-prem story for regulated environments."
+    weaknesses:
+      - "Smaller community and ecosystem than Cursor and Copilot."
+      - "Affiliate program less developed."
+      - "Some IDE polish gaps vs. Cursor."
+    best_for: "Cost-sensitive developers who want a real free tier."
+    alternative_slugs: [cursor, github-copilot, zed, cline]
+
+  - name: Claude Code
+    slug: claude-code
+    category: terminal-agent
+    one_liner: "Anthropic's terminal-native AI coding agent — runs in your shell, edits files, runs tests, ships PRs."
+    official_url: "https://www.anthropic.com/claude-code"
+    affiliate_url: "https://www.anthropic.com/claude-code"
+    pricing_tiers:
+      - "Bundled with Claude Pro — $20/mo"
+      - "Bundled with Claude Max — $100-$200/mo"
+      - "Team — $25/seat/mo (5+ seats)"
+      - "API metered — pay per token"
+    recurring_commission_pct: "TODO_VERIFY (Anthropic does not run a consumer affiliate program as of Jan 2026)"
+    strengths:
+      - "Terminal-first workflow — agents touch your real environment."
+      - "Strong Claude reasoning baked into agentic loops."
+      - "Free with existing Claude Pro/Max — no extra purchase."
+    weaknesses:
+      - "No affiliate program — promotion is content-only."
+      - "Power tier ($200/mo) needed for heavy daily use."
+      - "Steeper ramp for engineers used to GUI editors."
+    best_for: "Engineers who live in the terminal and want an agent peer."
+    alternative_slugs: [aider, cline, codex-cli, openhands]
+
+  - name: Aider
+    slug: aider
+    category: terminal-agent
+    one_liner: "Open-source AI pair programmer in the terminal — bring your own API key, edit code with git-aware diffs."
+    official_url: "https://aider.chat"
+    affiliate_url: "https://aider.chat"
+    pricing_tiers:
+      - "Free — open source"
+      - "Pay only for the LLM API you use"
+      - "OpenAI, Anthropic, Gemini, OpenRouter, Ollama supported"
+      - "Self-host friendly"
+    recurring_commission_pct: "Not applicable (open source — promotion is content-only)"
+    strengths:
+      - "Truly free and open — no SaaS lock-in."
+      - "Best git integration of any AI coding tool — every edit is a commit."
+      - "Bring-your-own-model lets engineers tune cost vs. quality."
+    weaknesses:
+      - "Zero affiliate revenue — content monetization only."
+      - "Terminal workflow assumes comfort with git and CLI."
+      - "Less polished UI than Cursor or Copilot."
+    best_for: "Engineers who want maximum control and minimum subscription footprint."
+    alternative_slugs: [claude-code, cline, openhands, codex-cli]
+
+  - name: Cline
+    slug: cline
+    category: code-completion
+    one_liner: "Open-source AI coding agent extension — autonomous file editing, terminal commands, and browser tasks in VS Code."
+    official_url: "https://cline.bot"
+    affiliate_url: "https://cline.bot"
+    pricing_tiers:
+      - "Free — open source extension"
+      - "Pay only for the LLM API you provide"
+      - "Cline Cloud (managed) — paid tiers"
+      - "OpenRouter, Anthropic, Gemini, etc."
+    recurring_commission_pct: "TODO_VERIFY (Cline Cloud may offer affiliate terms not yet publicly listed)"
+    strengths:
+      - "Truly autonomous — runs commands, hits browsers, ships changes."
+      - "VS Code extension distribution — installs in seconds."
+      - "Open source — strong community trust."
+    weaknesses:
+      - "Bring-your-own-key pricing is unpredictable for new users."
+      - "Affiliate program if any is not well-publicized."
+      - "Autonomous agents still need supervision on critical paths."
+    best_for: "Engineers who want a Claude Code-like agent inside VS Code."
+    alternative_slugs: [claude-code, aider, openhands, github-copilot]
+
+  - name: CodeRabbit
+    slug: coderabbit
+    category: code-review
+    one_liner: "AI code review tool that comments on PRs in GitHub, GitLab, Bitbucket — like a senior reviewer in every repo."
+    official_url: "https://www.coderabbit.ai"
+    affiliate_url: "https://www.coderabbit.ai"
+    pricing_tiers:
+      - "Free — open-source repos"
+      - "Pro — $30/seat/mo"
+      - "Enterprise — custom"
+      - "Self-hosted Enterprise tier"
+    recurring_commission_pct: "TODO_VERIFY (CodeRabbit runs partner program — terms not always public)"
+    strengths:
+      - "Free for open source — strong adoption among indie devs."
+      - "Catches real bugs and security issues, not just style."
+      - "Integrates with Linear, Jira, Slack, and GitHub Issues."
+    weaknesses:
+      - "Pro pricing per seat scales fast for larger teams."
+      - "AI suggestions still need a human green light."
+      - "Affiliate program details not transparent."
+    best_for: "Indie hackers and small teams who want a senior reviewer on every PR."
+    alternative_slugs: [greptile, sweep-ai, ellipsis, github-copilot]
+
+  - name: Greptile
+    slug: greptile
+    category: code-review
+    one_liner: "AI code review and codebase Q&A — talks to your repo, reviews PRs, and answers architectural questions."
+    official_url: "https://www.greptile.com"
+    affiliate_url: "https://www.greptile.com"
+    pricing_tiers:
+      - "Hobby — Free"
+      - "Pro — $30/seat/mo"
+      - "Team — $40/seat/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Greptile is YC-backed; no public affiliate program currently)"
+    strengths:
+      - "Codebase chat is genuinely useful for onboarding new contributors."
+      - "PR reviews catch architectural issues, not just style nits."
+      - "Self-host option for sensitive environments."
+    weaknesses:
+      - "No public affiliate revenue — content-led promotion only."
+      - "Per-seat pricing scales aggressively."
+      - "Less brand recognition than CodeRabbit."
+    best_for: "Teams onboarding contributors to a complex codebase."
+    alternative_slugs: [coderabbit, sweep-ai, sourcegraph, qodo]
+
+  - name: Replit
+    slug: replit
+    category: code-completion
+    one_liner: "Browser-based dev environment with AI agents — go from prompt to deployed app without local setup."
+    official_url: "https://replit.com"
+    affiliate_url: "https://replit.com"
+    pricing_tiers:
+      - "Starter — Free"
+      - "Replit Core — $25/mo (annual)"
+      - "Teams — $35/seat/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Replit has run affiliate programs — rate not consistently public)"
+    strengths:
+      - "Zero local setup — entire dev environment in the browser."
+      - "Replit Agent ships full apps from a single prompt."
+      - "Strong community and template library for solo founders."
+    weaknesses:
+      - "Lock-in to Replit infrastructure for hosting."
+      - "Costs scale fast on heavy compute or Always-On apps."
+      - "Affiliate terms not consistently public."
+    best_for: "Non-technical founders and learners who want to ship without local setup."
+    alternative_slugs: [bolt-new, lovable, v0, stackblitz]
+
+  - name: Bolt.new
+    slug: bolt-new
+    category: code-completion
+    one_liner: "AI app builder from StackBlitz — browser-based, runs Node and Python in WebContainers, ships from a prompt."
+    official_url: "https://bolt.new"
+    affiliate_url: "https://bolt.new"
+    pricing_tiers:
+      - "Free — limited daily tokens"
+      - "Pro — $20/mo"
+      - "Pro 50 — $50/mo"
+      - "Pro 100 — $100/mo"
+      - "Pro 200 — $200/mo"
+    recurring_commission_pct: "TODO_VERIFY (Bolt.new and parent StackBlitz do not publicly list a recurring affiliate program)"
+    strengths:
+      - "WebContainers run a full Node/Python stack in the browser tab."
+      - "From-prompt-to-live-app speed is genuinely impressive."
+      - "Clean ramp from free to high-power tiers."
+    weaknesses:
+      - "Token-based pricing punishes long iterative sessions."
+      - "No clear affiliate program."
+      - "Heavy dependence on a single vendor's infra."
+    best_for: "Solo founders who want a working web app from a prompt in an hour."
+    alternative_slugs: [replit, lovable, v0, claude-code]

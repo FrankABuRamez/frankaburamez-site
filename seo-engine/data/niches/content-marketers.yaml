@@ -1,0 +1,243 @@
+# Niche: AI for Content Marketers
+# Source of truth for the seo-engine page generator.
+# Content-marketing AI tools have the most mature affiliate programs of the four
+# niches — most run real recurring revenue share. Items still marked
+# TODO_VERIFY where the exact rate could not be confirmed for Jan 2026.
+niche:
+  slug: content-marketers
+  name: AI for Content Marketers
+  audience: "Content marketers, agency owners, and SEO teams who run high-volume content programs."
+  intent: "Pick AI tools that compress brief-to-publish cycles for blogs, social, video, and SEO."
+
+tools:
+  - name: Jasper
+    slug: jasper
+    category: writing
+    one_liner: "Content-marketing AI platform built around brand voice, campaigns, and team workflow — agency staple."
+    official_url: "https://www.jasper.ai"
+    affiliate_url: "https://www.jasper.ai"
+    pricing_tiers:
+      - "Creator — $39/mo (annual)"
+      - "Pro — $59/seat/mo (annual)"
+      - "Business — custom"
+      - "Free trial — 7 days"
+    recurring_commission_pct: "30% recurring (TODO_VERIFY current Jasper Affiliate Program tier)"
+    strengths:
+      - "Brand voice training is genuinely useful for agency clients."
+      - "Long-running affiliate program with documented payouts."
+      - "Templates cover the boring 80% of campaign work."
+    weaknesses:
+      - "Generation quality has lost ground to ChatGPT and Claude."
+      - "Pricing is high for solo content creators."
+      - "Some users find the UX over-engineered for daily writing."
+    best_for: "Agencies and content teams who need brand voice control across writers."
+    alternative_slugs: [copy-ai, writer, anyword, copysmith]
+
+  - name: Surfer SEO
+    slug: surfer-seo
+    category: seo
+    one_liner: "AI content optimization tool — outline, score, and publish on-page-SEO articles that rank."
+    official_url: "https://surferseo.com"
+    affiliate_url: "https://surferseo.com"
+    pricing_tiers:
+      - "Essential — $89/mo"
+      - "Scale — $179/mo"
+      - "Scale AI — $299/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "25% recurring lifetime (TODO_VERIFY current Surfer Affiliate Program)"
+    strengths:
+      - "Real recurring lifetime affiliate program — best-in-class economics."
+      - "On-page SEO scoring is a strong sales hook for agencies."
+      - "AI Outline + AI Article ship full drafts inside the same tool."
+    weaknesses:
+      - "Scale tier is expensive for solo creators."
+      - "Outline scoring can produce stuffed-feeling content if blindly followed."
+      - "Heavy reliance on Google ranking signals — fragile to algo changes."
+    best_for: "SEO content marketers and agencies running ranking-led content programs."
+    alternative_slugs: [clearscope, frase, marketmuse, dashword]
+
+  - name: Frase
+    slug: frase
+    category: seo
+    one_liner: "AI SEO content brief and writer — produces SERP-derived briefs and AI drafts in minutes."
+    official_url: "https://www.frase.io"
+    affiliate_url: "https://www.frase.io"
+    pricing_tiers:
+      - "Solo — $15/mo (annual)"
+      - "Basic — $45/mo"
+      - "Team — $115/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "30% recurring (TODO_VERIFY current Frase Affiliate Program)"
+    strengths:
+      - "Cheaper entry point than Surfer for solo content creators."
+      - "Brief-builder workflow saves hours per article."
+      - "Documented recurring affiliate program with 60-day cookie."
+    weaknesses:
+      - "AI drafting quality lags Surfer + Claude pipelines."
+      - "Mid tier required for serious volume."
+      - "Less powerful than Surfer on enterprise SEO workflows."
+    best_for: "Solo content marketers who want SERP briefs without enterprise pricing."
+    alternative_slugs: [surfer-seo, clearscope, marketmuse, neuralwriter]
+
+  - name: Descript
+    slug: descript
+    category: video
+    one_liner: "AI-powered video and podcast editor — edit by editing the transcript, with voice cloning and overdub."
+    official_url: "https://www.descript.com"
+    affiliate_url: "https://www.descript.com"
+    pricing_tiers:
+      - "Free — limited"
+      - "Hobbyist — $19/mo"
+      - "Creator — $35/mo"
+      - "Business — $65/seat/mo"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Descript runs affiliate programs through impact.com — rate varies)"
+    strengths:
+      - "Edit-by-transcript model is genuinely faster for podcasters."
+      - "Voice cloning and Overdub remove re-record loops."
+      - "One tool covers podcasts, YouTube, and short-form repurposing."
+    weaknesses:
+      - "Affiliate rate is partner-specific — not transparent up front."
+      - "Heavy projects strain laptops without GPU."
+      - "Voice cloning legal/ethics caveats need disclosure."
+    best_for: "Solo content creators who repurpose long video into clips and posts."
+    alternative_slugs: [riverside-fm, opus-clip, captions-ai, kapwing]
+
+  - name: Opus Clip
+    slug: opus-clip
+    category: video
+    one_liner: "AI clip-generator for short-form video — long videos in, viral-ready shorts out, with auto-captions and reframe."
+    official_url: "https://www.opus.pro"
+    affiliate_url: "https://www.opus.pro"
+    pricing_tiers:
+      - "Free — 90 min/mo"
+      - "Starter — $9/mo (annual)"
+      - "Pro — $19/mo (annual)"
+      - "Business — custom"
+    recurring_commission_pct: "TODO_VERIFY (Opus Clip runs affiliate program — terms vary by partner)"
+    strengths:
+      - "Removes the worst part of short-form video — manual clip selection."
+      - "ClipAnything finds custom moments by description."
+      - "Cheap entry pricing — accessible to creators just starting."
+    weaknesses:
+      - "Default templates make many clips look identical across the platform."
+      - "Affiliate program rates not consistently public."
+      - "Best output still needs human review before publishing."
+    best_for: "Content creators repurposing long video into short-form for TikTok/Reels/Shorts."
+    alternative_slugs: [descript, captions-ai, vidyo-ai, klap]
+
+  - name: ConvertKit
+    slug: convertkit
+    category: email
+    one_liner: "Email marketing platform built for creators with AI subject lines, segmentation, and content recommendations."
+    official_url: "https://convertkit.com"
+    affiliate_url: "https://convertkit.com"
+    pricing_tiers:
+      - "Free — up to 10,000 subs"
+      - "Creator — from $15/mo"
+      - "Creator Pro — from $29/mo"
+      - "Custom — high-volume"
+    recurring_commission_pct: "30% recurring for 24 months (TODO_VERIFY current Kit/ConvertKit Partner Program)"
+    strengths:
+      - "Real recurring affiliate program with documented terms."
+      - "Generous free tier — friction-free to recommend."
+      - "Strong creator-economy positioning and integrations."
+    weaknesses:
+      - "AI features are layered on rather than native."
+      - "Templates feel dated compared with Beehiiv."
+      - "Higher subs counts make pricing climb fast."
+    best_for: "Creators with active newsletters and product launches."
+    alternative_slugs: [beehiiv, mailerlite, substack, activecampaign]
+
+  - name: Buffer
+    slug: buffer
+    category: social
+    one_liner: "Social media scheduling and AI-assisted post generation — clean tool for content marketers across X, LI, IG."
+    official_url: "https://buffer.com"
+    affiliate_url: "https://buffer.com"
+    pricing_tiers:
+      - "Free — 3 channels"
+      - "Essentials — $6/channel/mo"
+      - "Team — $12/channel/mo"
+      - "Agency — $120/mo"
+    recurring_commission_pct: "TODO_VERIFY (Buffer runs an affiliate program through impact.com — rate varies by partner)"
+    strengths:
+      - "Clean, minimal UX — content marketers adopt it without training."
+      - "Affordable per-channel pricing model."
+      - "AI Assistant generates platform-specific variants from one draft."
+    weaknesses:
+      - "Less powerful analytics than Sprout Social or Hootsuite."
+      - "Affiliate rate not transparent up front."
+      - "AI features are useful but not differentiating."
+    best_for: "Creators and small content teams scheduling across multiple platforms."
+    alternative_slugs: [hootsuite, later, hypefury, typefully]
+
+  - name: Canva
+    slug: canva
+    category: design
+    one_liner: "AI design platform for non-designers — Magic Studio includes Magic Write, Magic Edit, and template AI."
+    official_url: "https://www.canva.com"
+    affiliate_url: "https://www.canva.com"
+    pricing_tiers:
+      - "Free — generous tier"
+      - "Pro — $14.99/mo (annual ~$120)"
+      - "Teams — $29.99/mo (5 users, annual)"
+      - "Enterprise — custom"
+    recurring_commission_pct: "TODO_VERIFY (Canva runs affiliate program through impact.com — first-year payout, rate varies)"
+    strengths:
+      - "Massive existing user base — recommendations convert at high rates."
+      - "Magic Studio AI features included on Pro tier."
+      - "Wide template library for content marketers."
+    weaknesses:
+      - "Designer-targeted critics see the output as same-y."
+      - "Affiliate program is impact.com-based — rate negotiation per partner."
+      - "AI image generation behind credit limits."
+    best_for: "Content marketers who need on-brand visuals at speed."
+    alternative_slugs: [adobe-express, figma, gamma, vista-create]
+
+  - name: ElevenLabs
+    slug: elevenlabs
+    category: audio
+    one_liner: "Top-tier AI voice generator — voiceover, dubbing, and voice cloning for content creators and podcasters."
+    official_url: "https://elevenlabs.io"
+    affiliate_url: "https://elevenlabs.io"
+    pricing_tiers:
+      - "Free — 10K characters/mo"
+      - "Starter — $5/mo"
+      - "Creator — $22/mo"
+      - "Pro — $99/mo"
+      - "Scale — $330/mo"
+    recurring_commission_pct: "TODO_VERIFY (ElevenLabs Affiliate Program — rate not consistently public for Jan 2026)"
+    strengths:
+      - "Best-in-class voice quality — barely distinguishable from human."
+      - "Voice cloning and dubbing covered in one product."
+      - "Wide language support for international creators."
+    weaknesses:
+      - "Voice cloning carries real ethical and legal risk if misused."
+      - "Affiliate program terms not transparent."
+      - "Higher tiers required for commercial-grade output."
+    best_for: "Creators producing voice content who want to scale without re-recording."
+    alternative_slugs: [murfai, play-ht, resemble-ai, descript]
+
+  - name: VEED
+    slug: veed
+    category: video
+    one_liner: "Browser-based AI video editor — auto-subtitles, AI avatars, and clip generation for social-first marketers."
+    official_url: "https://www.veed.io"
+    affiliate_url: "https://www.veed.io"
+    pricing_tiers:
+      - "Free — limited"
+      - "Lite — $18/mo"
+      - "Pro — $30/mo"
+      - "Business — $59/mo (annual)"
+    recurring_commission_pct: "TODO_VERIFY (VEED runs affiliate program — rate varies by partner)"
+    strengths:
+      - "Browser-based — no install or heavy local hardware needed."
+      - "Auto-subtitle quality is high in major languages."
+      - "AI Avatars unlock low-cost spokesperson video."
+    weaknesses:
+      - "Less power than Descript for podcast editing."
+      - "Affiliate rates not consistently public."
+      - "AI avatar realism still falls short of pre-recorded footage."
+    best_for: "Social-first content marketers producing high-volume short video."
+    alternative_slugs: [descript, opus-clip, kapwing, capcut]
