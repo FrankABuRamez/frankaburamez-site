@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spot vs perpetuals: when to use which | Frank Trading Ops</title>
+  <meta name="description" content="Spot vs perpetuals: when to use which — pragmatic, no-hype educational guide from Frank Trading Ops." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="Spot vs perpetuals: when to use which" />
+  <meta property="og:description" content="Spot vs perpetuals: when to use which — pragmatic, no-hype educational guide from Frank Trading Ops." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://frankaburamez.tech/blog/spot-vs-perpetuals.html" />
+  <meta property="article:published_time" content="2026-05-08" />
+  <link rel="canonical" href="https://frankaburamez.tech/blog/spot-vs-perpetuals.html" />
+  <link rel="stylesheet" href="../styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSS4LHL6NX');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Frank Trading Ops</a>
+      <nav>
+        <a href="../tools.html">Tools</a>
+        <a href="../health.html">Health</a>
+        <a href="../survival.html">Survival</a>
+        <a href="../brain.html">Brain</a>
+        <a href="../beauty.html">Beauty</a>
+        <a href="./index.html">Blog</a>
+        <a href="../vip.html"><strong>VIP</strong></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="wrap" style="max-width:780px;margin:2rem auto;padding:1rem;">
+      <p class="eyebrow">Frank Trading Ops &middot; 2026-05-08</p>
+<h1>Spot vs perpetuals: when to use which</h1>
+<p>Most traders encounter both spot markets and perpetual futures within their first few weeks of trading crypto. The mechanics look similar on the surface — you pick a pair, you buy or sell — but the underlying structure is completely different, and using the wrong instrument for a given situation costs you money even when your directional read is correct.</p>
+<p>This piece breaks down how each instrument actually works, what it costs to hold, when each one makes sense, and the common mistakes traders make when they conflate the two. By the end, you should be able to look at any trade setup and immediately know which instrument fits.</p>
+<h2>How spot and perpetuals actually work</h2>
+<p>Spot trading is the simplest version of buying an asset. You pay cash, you receive the asset. If you buy 1 ETH at $3,000, you own 1 ETH. That position has no expiration, no funding cost, and no liquidation risk from leverage. If ETH drops 80%, you still hold 1 ETH — you have not been forced out.</p>
+<p>Perpetual futures are a derivative. You are not buying the underlying asset; you are entering a contract that tracks the asset's price. Perpetuals were invented because standard futures expire, and traders wanted continuous exposure without rolling contracts. The mechanism that keeps perpetual prices anchored to spot is called the funding rate.</p>
+<p>Funding is a periodic payment — usually every 8 hours — that flows between long and short positions. When the perpetual trades at a premium to spot (most people are long), longs pay shorts. When it trades at a discount (most people are short), shorts pay longs. This creates a feedback loop that pulls the perpetual price toward spot over time.</p>
+<h2>What funding actually costs you</h2>
+<p>Funding is invisible to most new traders until it accumulates into something they notice. A funding rate of 0.01% per 8 hours sounds trivial. Annualized, that is roughly 10.95%. On a leveraged position, the effective drag is higher because you are paying that rate on your notional exposure, not just your margin.</p>
+<p>During high-leverage bull periods, funding rates have run at 0.1% per 8 hours — roughly 109% annualized. Holding a long perpetual through a two-week mania costs you more than most traders expect. A $100,000 notional long position at 0.05% per 8-hour period loses about $1,500 in funding alone over 30 days, with zero movement in price.</p>
+<p>The practical implication: perpetuals are short-term instruments for active traders. If you plan to hold something for weeks or months, funding bleeds you. Spot does not.</p>
+<h2>When spot is the right tool</h2>
+<p>Spot is the correct instrument for any position you plan to hold longer than a few days, particularly if you are not watching it constantly. You are expressing a directional view on price without any structural cost dragging against you. There is no liquidation engine that can force you out.</p>
+<p>Spot is also correct when you want actual ownership. If you hold ETH spot, you can move it to a hardware wallet, stake it, provide liquidity with it, or use it as collateral. A perpetual position gives you synthetic price exposure and nothing else.</p>
+<p>Consider someone who believes BTC will trade higher over the next six months. Buying spot BTC means they own the asset, pay no ongoing cost to hold it, and face no liquidation risk from normal price swings. They might experience a 30% drawdown without being forced out. Their only risk is the price going against them over time.</p>
+<p>Spot is also the correct choice when you cannot monitor positions regularly. If your job or time zone means you check prices twice a day, a leveraged perpetual is a liability. Spot lets you take a view without the mechanical risks that come with derivatives.</p>
+<h2>When perpetuals are the right tool</h2>
+<p>Perpetuals give you leverage and the ability to go short. Those are the two things spot cannot do.</p>
+<p>If you have a high-conviction short-term trade — you think BTC will drop 5% in the next 12 hours based on a technical setup or macro event — going short on spot is not possible without first owning the asset and lending it. Perpetuals let you short directly. You post margin, open a short, and profit if price falls.</p>
+<p>Leverage is the other core use case. With 3x leverage, a 5% move in your favor turns into a 15% return on capital. That math works both ways, but the point is that perpetuals let you control more notional exposure than your capital alone would allow on spot.</p>
+<p>Active traders use perpetuals for precise, time-bounded setups. You enter a trade, define your stop loss, set a target, and close the position. You are not accumulating a long-term holding; you are speculating on a specific price movement within a specific window. Funding matters less here because the holding time is short.</p>
+<p>Perpetuals are also used for hedging. If you hold a large spot BTC position and expect short-term volatility, you can open a short perpetual to reduce your net exposure temporarily without selling your spot. When the hedge period ends, you close the short and restore your full long exposure.</p>
+<h2>The mistakes that cost traders money</h2>
+<p>The most common mistake is using perpetuals as a substitute for spot when building a position you intend to hold. You open a 5x long perpetual because the gains feel more meaningful. Then you pay funding for three months while also managing liquidation risk through every correction. Spot would have given you the same directional exposure at a fraction of the structural cost.</p>
+<p>The second mistake is treating leverage as free money. A 10x leveraged long position gets liquidated with a 10% move against you, minus the funding paid and fees. In practice, your liquidation price is even closer than the math suggests because exchanges apply maintenance margin requirements. Traders who have not fully internalized their liquidation price often find out the hard way during a fast-moving overnight session.</p>
+<p>The third mistake is ignoring funding rates when they are extreme. When funding rates spike to 0.1% or higher per 8 hours, the market is telling you that sentiment is overwhelmingly one-sided. High positive funding is one of the more reliable signals that a short-term correction is likely. Experienced traders have a reflexive response to elevated funding: trim leveraged longs, tighten stops, or go flat.</p>
+<p>A subtler mistake involves holding perpetuals through events with known volatility — earnings for correlated assets, macro announcements, fork dates. The combination of leverage and sudden price swings creates outsized liquidation risk. Spot holders face the same price movement but do not get liquidated.</p>
+<h2>Sizing and risk management differ between instruments</h2>
+<p>On spot, your maximum loss is your entry position value. If you buy $10,000 of ETH, your worst case is losing $10,000. You can hold through a multi-year bear market and still own the asset.</p>
+<p>On perpetuals, your maximum loss is your entire margin, and it can happen faster than you expect. Position sizing must be adjusted for the leverage multiple. If you are trading at 5x, a 20% adverse move wipes your margin entirely — and 20% moves in crypto happen in hours. A $10,000 margin position with 5x leverage has $50,000 notional exposure, and your effective stop is much closer than on spot.</p>
+<p>A practical framework: size perpetual positions so that your margin at risk per trade is a fixed percentage of your total capital — many experienced traders use 1-3% per trade. On spot, you might be comfortable allocating a much larger percentage because there is no liquidation mechanism.</p>
+<p>Stop losses are optional on spot in the sense that the market cannot force you out — but they are functionally mandatory on leveraged perpetual positions. Without a predefined stop, a move against you simply erodes margin until liquidation.</p>
+<h2>Bottom line</h2>
+<p>Use spot when you are taking a multi-week or longer directional view, when you want to actually own the asset, or when you cannot actively manage a position. Use perpetuals when you have a short-term trade setup, need to go short, or want leveraged exposure to a specific move. The cost structure of each instrument reflects its intended use case: spot is for holding, perpetuals are for trading. Treating them interchangeably is the most predictable way to lose money to fees, funding, and liquidation without the market ever technically going against your thesis.</p>
+<hr/>
+<p><em>Educational only. Not financial advice. Crypto and trading carry real risk of loss. Do your own research and only risk what you can afford to lose.</em></p>
+
+      <hr style="margin:2.5rem 0;" />
+
+      <section class="card" style="padding:1.25rem;margin:1.5rem 0;">
+        <p class="eyebrow">Going deeper</p>
+        <h3 style="margin:.25rem 0 .75rem 0;">Read the daily VIP brief</h3>
+        <p>Every morning Frank ships a tight briefing with the actual setups, levels, and tools he is using. No hype, no fluff.</p>
+        <p><a class="btn primary" href="../vip.html" data-link-label="blog_spot-vs-perpetuals_vip_cta">Join the VIP brief</a></p>
+      </section>
+
+      <section style="margin:1.5rem 0;">
+        <p class="eyebrow">Tools mentioned in Frank's stack</p>
+        <ul>
+          <li><a href="https://bit.ly/frank-binance" rel="nofollow sponsored" data-link-label="blog_spot-vs-perpetuals_aff_binance">Binance &mdash; spot &amp; futures (Frank's link)</a></li>
+          <li><a href="https://bit.ly/frank-bybit" rel="nofollow sponsored" data-link-label="blog_spot-vs-perpetuals_aff_bybit">Bybit &mdash; perpetuals (Frank's link)</a></li>
+          <li><a href="../tools.html" data-link-label="blog_spot-vs-perpetuals_tools">More tools Frank uses</a></li>
+        </ul>
+      </section>
+
+      <p style="margin-top:2rem;font-size:.9rem;color:#666;">&larr; <a href="./index.html">Back to all posts</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; Frank Trading Ops &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></p>
+    </div>
+  </footer>
+</body>
+</html>
