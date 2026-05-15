@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What open interest tells you about a move | Frank Trading Ops</title>
+  <meta name="description" content="What open interest tells you about a move — pragmatic, no-hype educational guide from Frank Trading Ops." />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:title" content="What open interest tells you about a move" />
+  <meta property="og:description" content="What open interest tells you about a move — pragmatic, no-hype educational guide from Frank Trading Ops." />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://frankaburamez.tech/blog/open-interest-explained.html" />
+  <meta property="article:published_time" content="2026-05-15" />
+  <link rel="canonical" href="https://frankaburamez.tech/blog/open-interest-explained.html" />
+  <link rel="stylesheet" href="../styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSS4LHL6NX');
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Frank Trading Ops</a>
+      <nav>
+        <a href="../tools.html">Tools</a>
+        <a href="../health.html">Health</a>
+        <a href="../survival.html">Survival</a>
+        <a href="../brain.html">Brain</a>
+        <a href="../beauty.html">Beauty</a>
+        <a href="./index.html">Blog</a>
+        <a href="../vip.html"><strong>VIP</strong></a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="wrap" style="max-width:780px;margin:2rem auto;padding:1rem;">
+      <p class="eyebrow">Frank Trading Ops &middot; 2026-05-15</p>
+<h1>What open interest tells you about a move</h1>
+<p>Most traders watch price. They see a candle close green or red and make a decision. That works until it doesn't — and it stops working exactly when you need it most, right before a big move fakes out and reverses on you. Price alone is a lagging signal. What you want is the fuel behind the move.</p>
+<p>Open interest is that fuel. It measures the total number of outstanding derivative contracts — futures or options — that haven't been settled or closed. Unlike volume, which resets to zero at the start of every session, open interest accumulates. When it rises, new money is entering the market. When it falls, positions are being closed. Pair that with price direction and you have a rough map of whether a trend is being built by conviction or propped up by trapped longs waiting for an exit.</p>
+<p>This piece walks you through how open interest works mechanically, the four key price-and-OI combinations every operator should know, common mistakes people make reading it, and how to fold it into an actual trading process without overcooking the signal.</p>
+<h2>How open interest actually works</h2>
+<p>When a buyer and a seller enter a new futures contract together, open interest increases by one. When an existing holder closes their position by trading with someone else who is also closing, open interest decreases by one. If an existing holder closes against a new participant entering the market, open interest stays flat.</p>
+<p>That distinction matters. Open interest is not a measure of how many trades happened today. It's a measure of how many contracts are still open and waiting to be resolved — either by closing voluntarily or by expiration. Volume can spike on a single day of high activity and then collapse. Open interest builds over days and weeks as a market establishes a trend.</p>
+<p>In crypto perpetual futures, open interest is especially worth watching because there's no expiration forcing settlement. Traders can hold positions indefinitely, which means open interest can climb to extreme levels before something forces a resolution. That resolution usually comes as a liquidation cascade — a rapid flush that happens when price moves against over-leveraged positions and the exchange automatically closes them. High open interest heading into that flush tells you the move will be violent.</p>
+<h2>The four price-and-OI combinations</h2>
+<p>This is the core framework. Price and open interest each move in two directions, giving you four combinations. Each has a different interpretation.</p>
+<p><strong>Rising price, rising OI.</strong> New money is entering long. The move has conviction behind it. Buyers and sellers are both adding positions, which means the market is genuinely contested — sellers believe price will come down, buyers are betting it won't. Historically this combination is the most reliable signal of a sustainable trend leg. You're not chasing a ghost. Real capital is at work.</p>
+<p><strong>Rising price, falling OI.</strong> Price is going up but open interest is shrinking. What's happening: shorts are getting squeezed and covering their positions, which buys into price. As each short covers, OI drops by one. The move looks strong on the chart but it's being powered by position closing, not new conviction. Once the shorts are done covering, the buying pressure evaporates. This is a classic short squeeze pattern. It can produce sharp, fast moves, but it tends to run out of gas quickly.</p>
+<p><strong>Falling price, rising OI.</strong> New money is entering short. Bears have conviction and are building positions into the decline. This is the mirror of the first combination — a downtrend with legs. Sellers believe this goes lower and are willing to risk capital on it. Bounces in this environment tend to get faded quickly because the dominant position is short.</p>
+<p><strong>Falling price, falling OI.</strong> Long positions are closing. Price is falling because longs are cutting losses, not because aggressive new shorts are piling in. This is often the final stage of a downtrend — the sellers are exhausted and what remains is cleanup. These moves can reverse sharply once the last of the weak longs are flushed.</p>
+<h2>How liquidations connect to open interest</h2>
+<p>When open interest spikes to an unusual level and price is at an extreme, you have a setup for a violent flush. This is one of the most practically useful things OI tells you.</p>
+<p>Say Bitcoin runs from $60,000 to $75,000 over two weeks. If open interest doubles during that run, a large number of traders entered long on the way up and are still holding. Many of them used leverage — 5x, 10x, 20x. Their liquidation prices are clustered below the current price. If something triggers a drop — a macro headline, a whale unwind, a stop hunt — those liquidations trigger automatically, which forces more selling, which triggers more liquidations.</p>
+<p>The size of the OI buildup tells you how much fuel is loaded under the market. A move from $75,000 to $72,000 with low open interest might just be normal retracement. The same move with massive open interest is the first domino in a cascade that might not stop until $65,000.</p>
+<p>Platforms like Coinglass show OI aggregated across major exchanges. When you see open interest at multi-month highs relative to price, treat that as a fragility flag, not a bullish confirmation.</p>
+<h2>What open interest doesn&#x27;t tell you</h2>
+<p>OI is a positioning signal, not a directional guarantee. It tells you where money is concentrated, not where price is going. Before you start reading OI as a crystal ball, recognize its limits.</p>
+<p>First, you can't see which side is winning from OI alone. Rising OI means new longs and new shorts entered simultaneously — one of them is wrong. You need price direction to tell you which side is getting squeezed.</p>
+<p>Second, OI can stay elevated for days or weeks before a catalyst hits. You might identify a fragile setup — high OI at a resistance level — and watch price grind sideways for a week while nothing happens. The setup was real; the timing was unknowable.</p>
+<p>Third, institutional players know traders watch OI. Stop hunts are designed to temporarily spike or collapse price to trigger the liquidations of retail traders at obvious levels, then reverse. If OI is high and price briefly pierces a major support level before recovering, that may have been deliberate. The flush was the point.</p>
+<p>Finally, OI data across crypto exchanges is not uniform. Different exchanges have different user bases, different leverage caps, and different liquidation mechanisms. Aggregated OI is a rough tool. Use it as a filter, not a precision instrument.</p>
+<h2>Folding OI into a real trading process</h2>
+<p>You don't need to rebuild your whole process around open interest. The goal is to add it as a context layer — something that upgrades or downgrades your confidence in a setup you already have.</p>
+<p>Before entering a trend-following trade, check OI direction. If price is rising and OI is rising, the trend has backing. If price is rising and OI is falling, consider sizing down or tightening your target — the move might be shorter than it looks.</p>
+<p>Before fading an extreme move, check OI size. If a token just ran 40% in three days with a major OI buildup, fading it feels tempting. But if open interest is still elevated, the position that fueled the run is still open. The unwind hasn't happened yet. Fading too early means you may get squeezed alongside everyone else.</p>
+<p>Use OI with funding rate data in crypto perps. Funding rate tells you who is paying who to hold their position — positive funding means longs are dominant and paying shorts, negative means shorts are dominant. High open interest plus extreme positive funding plus price at resistance is a triple warning that the setup is crowded. That combination has historically resolved with fast, violent corrections.</p>
+<p>Set a regular OI check into your pre-trade workflow. Before any meaningful entry, five seconds on Coinglass or your exchange's OI chart. Note the trend in OI over the past 24-72 hours. Note whether OI is at a relative extreme. Then make your decision with that context in your head.</p>
+<h2>Bottom line</h2>
+<p>Open interest is a thermometer for market positioning, not a trading signal on its own. The four price-and-OI combinations give you a reliable framework for judging whether a move has conviction or is running on fumes. When OI hits extremes, it's a fragility flag — the market is loaded and a catalyst will resolve positions fast and hard. Use it as a filter on top of your existing process: it won't tell you the direction, but it will tell you how violent the resolution is likely to be when price finally makes its decision.</p>
+<hr/>
+<p><em>Educational only. Not financial advice. Crypto and trading carry real risk of loss. Do your own research and only risk what you can afford to lose.</em></p>
+
+      <hr style="margin:2.5rem 0;" />
+
+      <section class="card" style="padding:1.25rem;margin:1.5rem 0;">
+        <p class="eyebrow">Going deeper</p>
+        <h3 style="margin:.25rem 0 .75rem 0;">Read the daily VIP brief</h3>
+        <p>Every morning Frank ships a tight briefing with the actual setups, levels, and tools he is using. No hype, no fluff.</p>
+        <p><a class="btn primary" href="../vip.html" data-link-label="blog_open-interest-explained_vip_cta">Join the VIP brief</a></p>
+      </section>
+
+      <section style="margin:1.5rem 0;">
+        <p class="eyebrow">Tools mentioned in Frank's stack</p>
+        <ul>
+          <li><a href="https://bit.ly/frank-binance" rel="nofollow sponsored" data-link-label="blog_open-interest-explained_aff_binance">Binance &mdash; spot &amp; futures (Frank's link)</a></li>
+          <li><a href="https://bit.ly/frank-bybit" rel="nofollow sponsored" data-link-label="blog_open-interest-explained_aff_bybit">Bybit &mdash; perpetuals (Frank's link)</a></li>
+          <li><a href="../tools.html" data-link-label="blog_open-interest-explained_tools">More tools Frank uses</a></li>
+        </ul>
+      </section>
+
+      <p style="margin-top:2rem;font-size:.9rem;color:#666;">&larr; <a href="./index.html">Back to all posts</a></p>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>&copy; Frank Trading Ops &middot; <a href="../privacy.html">Privacy</a> &middot; <a href="../terms.html">Terms</a></p>
+    </div>
+  </footer>
+</body>
+</html>
