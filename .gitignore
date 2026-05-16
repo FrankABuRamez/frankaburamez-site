@@ -1,1 +1,9 @@
-${HOME}/
+node_modules/
+.env
+.env.local
+.next/
+out/
+seo-engine/node_modules/
+seo-engine/out/
+*.log
+.DS_Store

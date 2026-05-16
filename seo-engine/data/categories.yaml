@@ -1,0 +1,93 @@
+# AI tool category taxonomy — referenced from every tool entry's `category`.
+# Used to cluster pages, build category index pages, and power internal linking.
+# Keep slugs lowercase, dash-separated, stable — they appear in URLs.
+categories:
+  - slug: writing
+    name: AI Writing
+    intent: "Tools that help you write copy, articles, emails, and long-form content."
+    description: "AI writing tools cover everything from blog drafts to brand voice to sales copy. The leaders compress the brief-to-publish cycle from days to hours."
+
+  - slug: research
+    name: AI Research
+    intent: "Tools that compress research, sourcing, and competitive intel."
+    description: "AI research tools surface sources, summarize landscapes, and give cited answers — replacing hours of Googling with sourced output you can trust."
+
+  - slug: code-completion
+    name: AI Code Completion
+    intent: "AI inside your IDE — autocomplete, agent mode, and multi-file edits."
+    description: "AI code completion tools work from inside your editor. The leaders move past line-by-line suggestions into full agent loops that read repos, run tests, and ship pull requests."
+
+  - slug: terminal-agent
+    name: Terminal AI Agents
+    intent: "AI agents that run in your shell and touch your real environment."
+    description: "Terminal AI agents live in your shell, edit files, run tests, and orchestrate multi-step engineering work. They favor power users who already live at the CLI."
+
+  - slug: code-review
+    name: AI Code Review
+    intent: "Bots that review pull requests and answer codebase questions."
+    description: "AI code review tools read your repo, comment on pull requests, and answer architectural questions. The good ones catch real bugs, not just style nits."
+
+  - slug: knowledge-base
+    name: AI Knowledge Base
+    intent: "AI inside docs, wikis, and second-brain tools."
+    description: "AI knowledge-base tools layer search, generation, and chat on top of your existing docs. The goal: turn a static wiki into something that can answer."
+
+  - slug: design
+    name: AI Design
+    intent: "AI for slides, graphics, mockups, and visual content."
+    description: "AI design tools collapse the design pipeline. Solo founders and content marketers use them to ship decks, lead magnets, social posts, and one-pagers without a designer."
+
+  - slug: automation
+    name: AI Automation
+    intent: "AI-augmented workflow automation between apps."
+    description: "AI automation tools wire your stack together. The leaders blend classic triggers with AI steps so workflows can read, write, and decide."
+
+  - slug: marketing
+    name: AI Marketing
+    intent: "AI for newsletters, growth, and audience-building."
+    description: "AI marketing tools help creators and operators run newsletters, sequences, and growth motions. Recurring affiliate programs in this category are the strongest in SaaS."
+
+  - slug: ops
+    name: AI Ops
+    intent: "AI for scheduling, tracking, and the daily operations of a small team."
+    description: "AI ops tools cover the boring but necessary surface — calendars, issue tracking, status, and routine admin. The leaders feel native to a single-operator company."
+
+  - slug: communication
+    name: AI Communication
+    intent: "AI-augmented async video, email, and messaging."
+    description: "AI communication tools cut meeting load. Async video with AI summaries, smart inbox triage, and meeting recap automation are the workhorses."
+
+  - slug: trading-bot
+    name: Crypto Trading Bots
+    intent: "Automated trading bots for spot, futures, grid, and DCA crypto strategies."
+    description: "Crypto trading bots run while you sleep — DCA, grid, and signal-following setups are the most common. Recurring affiliate programs are unusually strong in this category."
+
+  - slug: charting
+    name: Crypto Charting
+    intent: "Charting platforms with AI alerts and screening for crypto traders."
+    description: "Crypto charting platforms are the home tab for active traders. AI alerts and screeners on top of mature charting engines are the modern edge."
+
+  - slug: seo
+    name: AI SEO
+    intent: "AI tools for keyword research, content briefs, and on-page optimization."
+    description: "AI SEO tools score, optimize, and outline content for search. The good ones reduce the time from keyword to ranked article without producing keyword-stuffed slop."
+
+  - slug: video
+    name: AI Video
+    intent: "AI for video editing, clip generation, and transcript-driven workflows."
+    description: "AI video tools cover the full creator pipeline — record, transcribe, edit, repurpose, and publish. Edit-by-transcript and AI clip-finding are the breakthrough features."
+
+  - slug: audio
+    name: AI Audio
+    intent: "AI voice generation, cloning, and audio editing."
+    description: "AI audio tools generate voiceover, clone voices, and clean recordings. Quality has crossed the line where most listeners cannot reliably distinguish AI from human."
+
+  - slug: email
+    name: AI Email
+    intent: "Email marketing platforms with AI subject-line and segmentation features."
+    description: "AI email tools blend generation with classic ESP features — subject-line optimization, smart segments, and automated sequences. Recurring affiliate programs here are mature."
+
+  - slug: social
+    name: AI Social
+    intent: "Tools for scheduling, generating, and analyzing social media content."
+    description: "AI social tools schedule, generate, and analyze posts across X, LinkedIn, Instagram, TikTok, and YouTube. The right pick depends on volume and channel mix."
