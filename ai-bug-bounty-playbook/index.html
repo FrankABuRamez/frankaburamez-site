@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Bug Bounty Playbook — Reports, Templates, Walkthrough | Frank Trading Ops</title>
+  <meta name="description" content="The exact AI bug bounty submission workflow: 8 report templates, 1 worked walkthrough, the triager scoring rubric, and the high-paying program shortlist. $9 lifetime." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://frankaburamez.tech/ai-bug-bounty-playbook/" />
+  <meta property="og:title" content="AI Bug Bounty Playbook — submit like a pro, get paid" />
+  <meta property="og:description" content="Why 90% of AI bug bounty submissions get downgraded or rejected — and how to fix it." />
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://frankaburamez.tech/ai-bug-bounty-playbook/" />
+  <link rel="stylesheet" href="../styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZSS4LHL6NX');
+  </script>
+  <style>
+    .price-card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:28px;box-shadow:var(--shadow);text-align:center}
+    .price-card .price{font-size:3rem;font-weight:800;line-height:1;margin:6px 0 4px}
+    .price-card .price-note{color:var(--sub);font-size:.9rem;margin-bottom:18px}
+    .buy-btn{display:inline-block;background:var(--blue);color:#fff;padding:14px 28px;border-radius:10px;font-weight:700;font-size:1.05rem;border:none;cursor:pointer;transition:background .15s}
+    .buy-btn:hover{background:var(--blue-dark)}
+    .pack-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:24px 0}
+    .pack-cat{background:var(--panel-soft);border:1px solid var(--line);border-radius:12px;padding:20px}
+    .pack-cat h3{color:#93c5fd;margin-bottom:10px;font-size:1rem;text-transform:uppercase;letter-spacing:.08em}
+    .pack-cat ul{list-style:none;padding:0;margin:0;font-size:.92rem;color:var(--sub)}
+    .pack-cat ul li{padding:6px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+    .pack-cat ul li:last-child{border-bottom:none}
+    .pack-cat ul li:before{content:"→ ";color:var(--gold);font-weight:700}
+    .compare{background:var(--muted-surface);border-left:3px solid var(--gold);padding:18px 22px;border-radius:0 10px 10px 0;margin:18px 0}
+    .compare .bad{color:#f87171;text-decoration:line-through;display:block;font-size:.95rem;margin-bottom:6px}
+    .compare .good{color:#34d399;display:block;font-size:.95rem;font-weight:600}
+    .faq dt{font-weight:700;margin-top:18px;color:var(--text)}
+    .faq dd{margin:6px 0 0;color:var(--sub)}
+    .pill{display:inline-block;background:rgba(245,158,11,.18);color:#fbbf24;padding:3px 10px;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-right:6px}
+    .stat{font-size:2rem;font-weight:800;color:var(--gold);line-height:1}
+    .stat-label{color:var(--sub);font-size:.85rem;margin-top:4px}
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Frank Trading Ops</a>
+      <nav>
+        <a href="../tools.html">Tools</a>
+        <a href="../bountyrecon/">BountyRecon</a>
+        <a href="../ai-crypto-pack/">AI Crypto Pack</a>
+        <a href="../vip.html">VIP</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">$9 one-time · Lifetime updates</div>
+        <h1>Submit like a pro. Get paid like one.</h1>
+        <p class="lead" style="font-size:1.2rem;color:var(--sub);max-width:48ch">
+          8 AI bug bounty report templates, 1 worked first-bug walkthrough, the triager scoring rubric, and the high-paying program shortlist.
+          Stop losing 4-figure bounties to a 200-word problem.
+        </p>
+        <div style="margin-top:24px;display:flex;gap:14px;flex-wrap:wrap;align-items:center">
+          <a class="buy-btn" href="https://buy.stripe.com/3cI4gA3qL5wveOVexteME0a">Get the Playbook — $9</a>
+          <span style="color:var(--sub);font-size:.92rem">Stripe checkout · Lifetime updates · 7-day refund</span>
+        </div>
+        <div style="margin-top:18px">
+          <span class="pill">8 Templates</span>
+          <span class="pill">1 Walkthrough</span>
+          <span class="pill">Scoring Rubric</span>
+          <span class="pill">Program Shortlist</span>
+        </div>
+      </div>
+      <div>
+        <div class="price-card">
+          <div style="color:var(--sub);font-size:.85rem;text-transform:uppercase;letter-spacing:.1em;font-weight:700">AI Bug Bounty Playbook</div>
+          <div class="price">$9</div>
+          <div class="price-note">One time. Lifetime updates included.</div>
+          <a class="buy-btn" href="https://buy.stripe.com/3cI4gA3qL5wveOVexteME0a" style="width:100%;display:block">Buy Now</a>
+          <div style="margin-top:14px;font-size:.82rem;color:var(--sub);text-align:left">
+            ✓ 8 program-specific report templates<br>
+            ✓ Full first-bug walkthrough (recon → submission → bounty)<br>
+            ✓ Triager scoring rubric (how H1/Bugcrowd/huntr think)<br>
+            ✓ High-paying AI programs shortlist<br>
+            ✓ Lifetime updates as new program types emerge
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:50px 0;background:var(--bg-soft)">
+    <div class="wrap narrow">
+      <div class="eyebrow">The problem</div>
+      <h2>90% of AI bug bounty reports lose money because of <em>how</em> they're written, not <em>what</em> they find.</h2>
+      <p style="color:var(--sub);font-size:1.05rem">
+        Triagers see vague impact. Reproduction steps that don't reproduce. One screenshot with no PoC. A severity claim with no CVSS justification. No fix recommendation.
+      </p>
+      <p style="color:var(--sub);font-size:1.05rem">
+        They close as <code>Informative</code>. Or downgrade Critical → Medium. You lose $4K on a 200-word problem.
+      </p>
+
+      <div class="compare">
+        <span class="bad">"Server-side prompt injection could lead to data exposure."</span>
+        <span class="good">"Server-side prompt injection in /api/chat allows extraction of system prompt + tool definitions. PoC: curl below. Impact: leaks proprietary system prompt to any authenticated user. CVSS 7.4 (AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:N/A:N). Mitigation: sanitize user input before tool-call routing."</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:28px;text-align:center">
+        <div><div class="stat">90%</div><div class="stat-label">of reports lose money on writeup quality</div></div>
+        <div><div class="stat">$4K+</div><div class="stat-label">average gap between bad and good submission</div></div>
+        <div><div class="stat">200</div><div class="stat-label">words is all it takes to fix it</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:60px 0">
+    <div class="wrap">
+      <div class="eyebrow" style="text-align:center">What's in the playbook</div>
+      <h2 style="text-align:center;margin-bottom:8px">Built for AI-specific programs.</h2>
+      <p style="text-align:center;color:var(--sub);max-width:60ch;margin:0 auto 28px">
+        Generic bug bounty advice doesn't cut it for AI programs. Triagers expect prompt-injection PoCs, model-poisoning impact analysis, supply-chain dependency trees. Templates here are written for what they actually want to see.
+      </p>
+
+      <div class="pack-grid">
+        <div class="pack-cat">
+          <h3>Templates (8)</h3>
+          <ul>
+            <li>huntr.com-style AI/ML vulnerability report</li>
+            <li>Classic web (XSS, IDOR, SSRF) on AI products</li>
+            <li>Prompt injection (direct + indirect)</li>
+            <li>Jailbreak / safety bypass</li>
+            <li>Supply-chain (model registry, dataset poisoning)</li>
+            <li>Model-stealing / membership inference</li>
+            <li>RAG poisoning / context-window abuse</li>
+            <li>Agent-action escalation</li>
+          </ul>
+        </div>
+
+        <div class="pack-cat">
+          <h3>Walkthrough (1)</h3>
+          <ul>
+            <li>Pick a program (criteria + filter)</li>
+            <li>Recon checklist (endpoints, model surface)</li>
+            <li>Bug-hunting iteration loop</li>
+            <li>Writing the submission</li>
+            <li>Negotiating triage</li>
+            <li>Bounty math + payout</li>
+          </ul>
+        </div>
+
+        <div class="pack-cat">
+          <h3>Scoring Rubric</h3>
+          <ul>
+            <li>How H1 triagers score reports</li>
+            <li>How Bugcrowd VRT applies to AI bugs</li>
+            <li>How huntr scores ML-specific impact</li>
+            <li>The 5 phrases that auto-upgrade severity</li>
+            <li>The 3 phrases that auto-downgrade it</li>
+          </ul>
+        </div>
+
+        <div class="pack-cat">
+          <h3>Program Shortlist</h3>
+          <ul>
+            <li>Top AI programs by avg payout</li>
+            <li>Preferred submission style per program</li>
+            <li>Active triagers (response time data)</li>
+            <li>Programs with bounty-multiplier promos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:50px 0;background:var(--bg-soft)">
+    <div class="wrap narrow">
+      <div class="eyebrow">Who this is for</div>
+      <h2>This isn't a course. It's a playbook.</h2>
+      <p style="color:var(--sub);font-size:1.05rem">You're already finding bugs — or about to. You don't need another "intro to bug bounty" guide. You need the muscle memory that turns a found bug into a paid bug.</p>
+      <p style="color:var(--sub);font-size:1.05rem">If you know what an IDOR is and you've used <code>curl</code> in anger, you're ready for this pack. If you've never poked at an HTTP request, get the basics down first — then come back.</p>
+    </div>
+  </section>
+
+  <section style="padding:60px 0">
+    <div class="wrap narrow">
+      <div class="eyebrow">FAQ</div>
+      <h2>Quick answers</h2>
+      <dl class="faq">
+        <dt>What format are the templates in?</dt>
+        <dd>Markdown. Paste into the platform's report editor. Works on HackerOne, Bugcrowd, huntr, Intigriti.</dd>
+
+        <dt>Do these templates work for non-AI bounties?</dt>
+        <dd>Yes — the classic web templates and the scoring rubric apply to any bounty. The AI-specific ones (prompt injection, jailbreak, supply chain) are what makes this playbook different from generic guides.</dd>
+
+        <dt>How often do you update it?</dt>
+        <dd>New templates added when new program types emerge (e.g., the agent-action escalation template was added when major agent platforms launched). Lifetime updates included.</dd>
+
+        <dt>Will it guarantee bigger bounties?</dt>
+        <dd>No. Better writeups are necessary but not sufficient. You still need to find real bugs with real impact. The playbook just makes sure you get paid what those bugs are worth.</dd>
+
+        <dt>Refund policy?</dt>
+        <dd>7 days, no questions. Email <a href="mailto:frank@frankaburamez.tech" style="color:#93c5fd">frank@frankaburamez.tech</a>.</dd>
+
+        <dt>Bundle with BountyRecon?</dt>
+        <dd>BountyRecon finds the programs. The Playbook helps you submit. Pair both — see <a href="../bountyrecon/" style="color:#93c5fd">BountyRecon</a>.</dd>
+      </dl>
+    </div>
+  </section>
+
+  <section style="padding:64px 0;background:linear-gradient(180deg,var(--bg-soft) 0%,var(--bg) 100%);text-align:center">
+    <div class="wrap narrow">
+      <h2 style="margin-bottom:18px">$9 to stop leaving thousands on the table.</h2>
+      <p style="color:var(--sub);font-size:1.1rem;margin-bottom:24px">8 templates. 1 walkthrough. Scoring rubric. Program shortlist. Lifetime updates.</p>
+      <a class="buy-btn" href="https://buy.stripe.com/3cI4gA3qL5wveOVexteME0a" style="font-size:1.15rem;padding:18px 36px">Buy the Playbook — $9</a>
+      <p style="color:var(--sub);font-size:.85rem;margin-top:18px">Stripe checkout · Lifetime access · 7-day refund</p>
+    </div>
+  </section>
+
+  <footer style="padding:38px 0;border-top:1px solid var(--line);color:var(--sub);font-size:.88rem">
+    <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:18px">
+      <div>© 2026 Frank Trading Ops · <a href="../privacy.html" style="color:var(--sub)">Privacy</a> · <a href="../terms.html" style="color:var(--sub)">Terms</a></div>
+      <div>Questions? <a href="mailto:frank@frankaburamez.tech" style="color:#93c5fd">frank@frankaburamez.tech</a></div>
+    </div>
+  </footer>
+</body>
+</html>
