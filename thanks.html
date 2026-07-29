@@ -3,137 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thanks — Frank Trading Ops</title>
-  <meta name="description" content="Thanks for joining Frank Trading Ops. Here's what's next." />
-  <meta name="robots" content="noindex,follow" />
-  <link rel="canonical" href="https://frankaburamez.tech/thanks.html" />
+  <title>Purchase Support | Frank AI Operations</title>
+  <meta name="robots" content="noindex,nofollow" />
   <link rel="stylesheet" href="./styles.css" />
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZSS4LHL6NX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZSS4LHL6NX');
-  </script>
 </head>
 <body>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="./index.html">Frank Trading Ops</a>
-      <nav>
-        <a href="./tools.html">Tools</a>
-        <a href="./vip.html">VIP</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero compact">
-      <div class="wrap narrow">
-        <p class="eyebrow" id="status-eyebrow">Confirming...</p>
-        <h1 id="status-title">Thanks for your purchase.</h1>
-        <p class="lead" id="status-message">We're processing your order. Below are your next steps.</p>
-
-        <div class="card" style="padding:24px; margin-top:18px;" id="success-card" hidden>
-          <h3>Next steps</h3>
-          <ul>
-            <li id="step-vip" hidden><strong>VIP members:</strong> open <a href="https://whop.com/joined/frank-trading-ops/" target="_blank" rel="noopener noreferrer">your Whop chat</a> to read the latest brief and meet the room.</li>
-            <li id="step-pack" hidden><strong>Pack buyers:</strong> your AI Crypto Workflow Pack is ready. <a id="pack-download" href="" download>Download the pack now</a> (markdown bundle, opens in any text editor or browser). A copy is also being emailed to your checkout address as backup. Lifetime updates — bookmark this page.</li>
-            <li id="step-playbook" hidden><strong>Playbook buyers:</strong> your AI Bug Bounty Playbook is ready. <a id="playbook-download" href="" download>Download the playbook now</a> (markdown — opens in any text editor or browser). Per-program report templates, worked walkthrough, triager rubric. Bookmark this page.</li>
-            <li id="step-recon" hidden><strong>BountyRecon:</strong> check your inbox for the magic-link to bind your Telegram. The bot will DM you a confirmation, then your first daily diff arrives at 9 AM UTC tomorrow.</li>
-            <li id="step-generic">Save this page or bookmark <a href="./vip.html">/vip.html</a> for the next brief drop.</li>
-          </ul>
-        </div>
-
-        <div class="actions" style="margin-top:24px;">
-          <a class="btn primary" href="https://whop.com/joined/frank-trading-ops/">Open Whop chat</a>
-          <a class="btn secondary" href="./index.html">Back to site</a>
-        </div>
+  <main class="section">
+    <div class="wrap narrow">
+      <div class="card" style="padding:32px">
+        <p class="eyebrow">Purchase support</p>
+        <h1>Need help with a previous purchase?</h1>
+        <p>Trading memberships, signals, market briefs, and trading workflow products are no longer offered. For an existing order, account, cancellation, or refund question, email <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a>.</p>
+        <a class="btn primary" href="./index.html">Return to the main site</a>
       </div>
-    </section>
+    </div>
   </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-grid">
-      <div>
-        <strong>Frank Trading Ops</strong>
-        <p class="small">Contact: <a href="mailto:frankaburamez@gmail.com">frankaburamez@gmail.com</a></p>
-      </div>
-      <div>
-        <a href="./vip.html">VIP</a><br />
-        <a href="./bountyrecon/">BountyRecon</a><br />
-        <a href="./tools.html">Tools</a><br />
-        <a href="./privacy.html">Privacy</a><br />
-        <a href="./terms.html">Terms</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var status = params.get('status');
-      var product = params.get('p');
-      var eyebrow = document.getElementById('status-eyebrow');
-      var title = document.getElementById('status-title');
-      var message = document.getElementById('status-message');
-      var card = document.getElementById('success-card');
-      var stepVip = document.getElementById('step-vip');
-      var stepPack = document.getElementById('step-pack');
-      var stepPlaybook = document.getElementById('step-playbook');
-      var stepRecon = document.getElementById('step-recon');
-      var stepGeneric = document.getElementById('step-generic');
-      var packDownload = document.getElementById('pack-download');
-      var playbookDownload = document.getElementById('playbook-download');
-
-      // Download URLs — only assigned in client-side JS after status=success + matching product confirmed.
-      // Slugs are unguessable; not in static HTML or sitemap. Auth-by-obscurity (full session_id verification deferred to next iteration).
-      var PACK_SLUG = 'ai-crypto-workflow-pack-7f3a9c2e1b5d';
-      var PLAYBOOK_SLUG = 'ai-bounty-playbook-e7a354339e56';
-
-      if (status === 'error') {
-        eyebrow.textContent = 'Something went wrong';
-        title.textContent = 'Checkout did not complete.';
-        message.textContent = 'Your card was not charged. Try again, or email us if you saw an unexpected error.';
-        return;
-      }
-
-      // GATE: only reveal anything if status is exactly 'success'.
-      if (status !== 'success') {
-        eyebrow.textContent = 'Hello';
-        title.textContent = 'Frank Trading Ops';
-        message.textContent = 'Looking for the VIP page? Try the link in the menu, or contact frankaburamez@gmail.com if you reached this page from a checkout that did not complete.';
-        return;
-      }
-
-      // Confirmed success — reveal card and the matching step only.
-      eyebrow.textContent = 'Confirmed';
-      if (card) card.hidden = false;
-      if (stepGeneric) stepGeneric.hidden = false;
-
-      if (product === 'vip') {
-        title.textContent = 'You are in. Welcome to VIP.';
-        message.textContent = 'Your $19/mo membership is active. Daily briefs land in the Whop chat each weekday morning.';
-        if (stepVip) stepVip.hidden = false;
-      } else if (product === 'pack') {
-        title.textContent = 'Pack ready. Download below.';
-        message.textContent = 'Your AI Crypto Workflow Pack is unlocked. Click the download link in the next-steps card. Bookmark this page for lifetime updates.';
-        if (stepPack) stepPack.hidden = false;
-        if (packDownload) packDownload.href = './pack/' + PACK_SLUG + '.md';
-      } else if (product === 'playbook') {
-        title.textContent = 'Playbook ready. Download below.';
-        message.textContent = 'Your AI Bug Bounty Playbook is unlocked. Click the download link in the next-steps card. Bookmark this page.';
-        if (stepPlaybook) stepPlaybook.hidden = false;
-        if (playbookDownload) playbookDownload.href = './pack/' + PLAYBOOK_SLUG + '.md';
-      } else if (product === 'recon-solo' || product === 'recon-pro' || product === 'recon-unlimited') {
-        title.textContent = 'BountyRecon active. Bind your Telegram next.';
-        message.textContent = 'Your subscription is live. Open the magic-link we email you to bind Telegram, then watch for the first daily diff at 9 AM UTC tomorrow.';
-        if (stepRecon) stepRecon.hidden = false;
-      } else {
-        title.textContent = 'Thanks for your purchase.';
-        message.textContent = 'We are processing your order. Email frankaburamez@gmail.com if anything is missing.';
-      }
-    })();
-  </script>
 </body>
 </html>
